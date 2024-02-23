@@ -64,7 +64,6 @@ namespace ProjectABM
             this.dataGridViewClientes.Name = "dataGridViewClientes";
             this.dataGridViewClientes.Size = new System.Drawing.Size(370, 220);
             this.dataGridViewClientes.TabIndex = 2;
-            this.dataGridViewClientes.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClientes_CellValueChanged_1);
             // 
             // buttonDeleteClient
             // 
@@ -84,7 +83,7 @@ namespace ProjectABM
             this.dataGridViewClientesCellValueChanged.TabIndex = 4;
             this.dataGridViewClientesCellValueChanged.Text = "Update";
             this.dataGridViewClientesCellValueChanged.UseVisualStyleBackColor = true;
-            this.dataGridViewClientesCellValueChanged.Click += new System.EventHandler(this.button2_Click);
+            this.dataGridViewClientesCellValueChanged.Click += new System.EventHandler(this.dataGridViewClientesCellValueChanged_Click);
             // 
             // Form1
             // 
