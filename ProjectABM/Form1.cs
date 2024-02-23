@@ -60,5 +60,42 @@ namespace ProjectABM
                 }
             }
         }
+
+        private void buttonDeleteClient_Click(object sender, EventArgs e)
+        {
+            // Get the selected row.
+            if (dataGridViewClientes.SelectedRows.Count > 0)
+            {
+                // Assuming your DataGridView is bound to a List<Cliente>, and ClienteId is the primary key.
+                int selectedClienteId = Convert.ToInt32(dataGridViewClientes.SelectedRows[0].Cells["Cliente_id"].Value);
+
+                using (OracleConnection connection = new OracleConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        _clienteRepository.DeleteCliente(connection, selectedClienteId);
+
+                        // Optionally, refresh the DataGridView.
+                        RefreshClientesDataGridView(connection);
+                    }
+                    catch (OracleException ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row or a client to delete.");
+            }
+        }
+
+        // Method to refresh the DataGridView after delete.
+        private void RefreshClientesDataGridView(OracleConnection connection)
+         {
+             var clientes = _clienteRepository.ListClientes(connection);
+             dataGridViewClientes.DataSource = clientes.ToList();
+         } 
     }
 }

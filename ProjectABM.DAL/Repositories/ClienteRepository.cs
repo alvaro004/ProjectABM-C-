@@ -11,7 +11,7 @@ namespace ProjectABM.DAL.Repositories
 {
     public class ClienteRepository : IClienteRepository
     {
-        // This method no longer needs a connection string since the connection is managed by Form1.cs
+        //Get Clients
         public IEnumerable<Cliente> ListClientes(OracleConnection connection)
         {
             var clientes = new List<Cliente>();
@@ -41,6 +41,20 @@ namespace ProjectABM.DAL.Repositories
 
             return clientes;
         }
+
+        //Delete a Client by Cliente_Id
+        public void DeleteCliente(OracleConnection connection, int cliente_id)
+        {
+            using (var command = new OracleCommand("pkg_abm_assigment.sp_delete_cliente", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("p_cliente_id", OracleDbType.Int32).Value = cliente_id;
+
+                command.ExecuteNonQuery(); // Executes the delete stored procedure.
+            }
+        }
     }
+
+    //aa
 }
 
