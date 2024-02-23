@@ -33,6 +33,7 @@ namespace ProjectABM
             this.btnGetClientes = new System.Windows.Forms.Button();
             this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
             this.buttonDeleteClient = new System.Windows.Forms.Button();
+            this.dataGridViewClientesCellValueChanged = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,7 +64,7 @@ namespace ProjectABM
             this.dataGridViewClientes.Name = "dataGridViewClientes";
             this.dataGridViewClientes.Size = new System.Drawing.Size(370, 220);
             this.dataGridViewClientes.TabIndex = 2;
-            this.dataGridViewClientes.ReadOnly = true;
+            this.dataGridViewClientes.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewClientes_CellValueChanged_1);
             // 
             // buttonDeleteClient
             // 
@@ -75,11 +76,22 @@ namespace ProjectABM
             this.buttonDeleteClient.UseVisualStyleBackColor = true;
             this.buttonDeleteClient.Click += new System.EventHandler(this.buttonDeleteClient_Click);
             // 
+            // dataGridViewClientesCellValueChanged
+            // 
+            this.dataGridViewClientesCellValueChanged.Location = new System.Drawing.Point(562, 279);
+            this.dataGridViewClientesCellValueChanged.Name = "dataGridViewClientesCellValueChanged";
+            this.dataGridViewClientesCellValueChanged.Size = new System.Drawing.Size(75, 23);
+            this.dataGridViewClientesCellValueChanged.TabIndex = 4;
+            this.dataGridViewClientesCellValueChanged.Text = "Update";
+            this.dataGridViewClientesCellValueChanged.UseVisualStyleBackColor = true;
+            this.dataGridViewClientesCellValueChanged.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridViewClientesCellValueChanged);
             this.Controls.Add(this.buttonDeleteClient);
             this.Controls.Add(this.dataGridViewClientes);
             this.Controls.Add(this.btnGetClientes);
@@ -96,6 +108,7 @@ namespace ProjectABM
         private System.Windows.Forms.Button btnGetClientes;
         private System.Windows.Forms.DataGridView dataGridViewClientes;
         private System.Windows.Forms.Button buttonDeleteClient;
+        private System.Windows.Forms.Button dataGridViewClientesCellValueChanged;
     }
 }
 

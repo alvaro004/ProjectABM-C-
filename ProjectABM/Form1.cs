@@ -91,11 +91,48 @@ namespace ProjectABM
             }
         }
 
+        //update client
+
         // Method to refresh the DataGridView after delete.
         private void RefreshClientesDataGridView(OracleConnection connection)
          {
              var clientes = _clienteRepository.ListClientes(connection);
              dataGridViewClientes.DataSource = clientes.ToList();
-         } 
+         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridViewClientes_CellValueChanged_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Ensure it's a valid row
+            {
+                DataGridViewRow row = dataGridViewClientes.Rows[e.RowIndex];
+                var updatedCliente = new DAL.Models.Cliente
+                {
+                    cliente_id = Convert.ToInt32(row.Cells["cliente_id"].Value),  // Assuming 'cliente_id' is your primary key column 
+                    cliente_nom = row.Cells["cliente_nom"].Value?.ToString() ?? "", // Handles potential nulls in 'cliente_nom'
+                    cliente_apellido = row.Cells["cliente_apellido"].Value?.ToString() ?? ""
+                };
+
+                using (OracleConnection connection = new OracleConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        _clienteRepository.UpdateCliente(connection, updatedCliente);
+                        // Consider a success message: MessageBox.Show("Client updated!");
+                        RefreshClientesDataGridView(connection);
+
+                    }
+                    catch (OracleException ex)
+                    {
+                        MessageBox.Show("Update Error: " + ex.Message);
+                    }
+                }
+            }
+        }
     }
 }

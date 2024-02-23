@@ -53,6 +53,22 @@ namespace ProjectABM.DAL.Repositories
                 command.ExecuteNonQuery(); // Executes the delete stored procedure.
             }
         }
+
+        //Update a Client by Client_Id
+        public void UpdateCliente(OracleConnection connection, Cliente cliente)
+        {
+            using (var command = new OracleCommand("pkg_abm_assigment.sp_update_cliente", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("p_cliente_id", OracleDbType.Int32).Value = cliente.cliente_id;
+                command.Parameters.Add("p_cliente_nom", OracleDbType.Varchar2).Value = cliente.cliente_nom;
+                command.Parameters.Add("p_cliente_apellido", OracleDbType.Varchar2).Value = cliente.cliente_apellido;
+
+                command.ExecuteNonQuery();
+            }
+        }
+
     }
 
     //aa
