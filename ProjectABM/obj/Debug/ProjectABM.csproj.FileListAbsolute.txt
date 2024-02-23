@@ -30,3 +30,6 @@ C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\obj\Debug\ProjectAB
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\obj\Debug\ProjectABM.csproj.CopyComplete
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\obj\Debug\ProjectABM.exe
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\obj\Debug\ProjectABM.pdb
+C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\bin\Debug\ProjectABM.DAL.dll
+C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\bin\Debug\ProjectABM.DAL.pdb
+C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\bin\Debug\ProjectABM.DAL.dll.config
