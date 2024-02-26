@@ -134,5 +134,11 @@ namespace ProjectABM
                 MessageBox.Show("Please select a row or an article to delete.");
             }
         }
+
+        //UPDATE ARTICULO
+        private void buttonUpdateArticulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

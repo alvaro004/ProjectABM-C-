@@ -37,6 +37,7 @@ namespace ProjectABM
             this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
             this.returnToWelcomeButton = new System.Windows.Forms.Button();
             this.buttonDeleteArticulo = new System.Windows.Forms.Button();
+            this.buttonUpdateArticulo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,11 +109,22 @@ namespace ProjectABM
             this.buttonDeleteArticulo.UseVisualStyleBackColor = true;
             this.buttonDeleteArticulo.Click += new System.EventHandler(this.buttonDeleteArticulo_Click);
             // 
+            // buttonUpdateArticulo
+            // 
+            this.buttonUpdateArticulo.Location = new System.Drawing.Point(157, 399);
+            this.buttonUpdateArticulo.Name = "buttonUpdateArticulo";
+            this.buttonUpdateArticulo.Size = new System.Drawing.Size(110, 31);
+            this.buttonUpdateArticulo.TabIndex = 18;
+            this.buttonUpdateArticulo.Text = "Update";
+            this.buttonUpdateArticulo.UseVisualStyleBackColor = true;
+            this.buttonUpdateArticulo.Click += new System.EventHandler(this.buttonUpdateArticulo_Click);
+            // 
             // ArticuloForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(601, 511);
+            this.Controls.Add(this.buttonUpdateArticulo);
             this.Controls.Add(this.buttonDeleteArticulo);
             this.Controls.Add(this.returnToWelcomeButton);
             this.Controls.Add(this.dataGridViewArticulos);
@@ -139,5 +151,6 @@ namespace ProjectABM
         private System.Windows.Forms.DataGridView dataGridViewArticulos;
         private System.Windows.Forms.Button returnToWelcomeButton;
         private System.Windows.Forms.Button buttonDeleteArticulo;
+        private System.Windows.Forms.Button buttonUpdateArticulo;
     }
 }

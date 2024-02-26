@@ -72,5 +72,19 @@ namespace ProjectABM.DAL.Repositories
             }
         }
 
+        //UPDATE AN ARTICULO
+        public void UpdateArticulo(OracleConnection connection, Articulo articulo)
+        {
+            using (var command = new OracleCommand("pkg_abm_assigment.sp_update_articulo", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("p_articulo_id", OracleDbType.Int32, ParameterDirection.Output);
+                command.Parameters.Add("p_articulo_fecha", OracleDbType.Date).Value = articulo.articulo_fecha;
+
+                command.ExecuteNonQuery();
+            }
+        }
+
     }
 }
