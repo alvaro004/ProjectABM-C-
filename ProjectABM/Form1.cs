@@ -24,23 +24,26 @@ namespace ProjectABM
         {
             InitializeComponent();
             _clienteRepository = new ClienteRepository();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
+            // Fetch and list clients when the windows form is open:
             using (OracleConnection connection = new OracleConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    MessageBox.Show("Connection Successful!");
+                    var clientes = _clienteRepository.ListClientes(connection);
+                    dataGridViewClientes.DataSource = clientes.ToList();
                 }
                 catch (OracleException ex)
                 {
-                    MessageBox.Show("Connection Failed: " + ex.Message);
+                    MessageBox.Show("Error: " + ex.Message);
                 }
             }
         }
+
+
+
+        //GET CLIENTS
 
         private void buttonGetClientes(object sender, EventArgs e)
         {
@@ -61,6 +64,8 @@ namespace ProjectABM
                 }
             }
         }
+
+        //DELETE CLIENT
 
         private void buttonDeleteClient_Click(object sender, EventArgs e)
         {
@@ -92,14 +97,7 @@ namespace ProjectABM
             }
         }
 
-        //update client
-
-        // Method to refresh the DataGridView after delete.
-        private void RefreshClientesDataGridView(OracleConnection connection)
-         {
-             var clientes = _clienteRepository.ListClientes(connection);
-             dataGridViewClientes.DataSource = clientes.ToList();
-         }
+        //UPDATE CLIENT
 
         private void dataGridViewClientesCellValueChanged_Click(object sender, EventArgs e)
         {
@@ -135,12 +133,8 @@ namespace ProjectABM
             }
         }
 
-        private void name_Click(object sender, EventArgs e)
-        {
-
-        }
-
         //INSERT NEW CLIENTS
+
         private void createNewClientButton_Click_Click(object sender, EventArgs e)
         {
             // Input Validation
@@ -178,9 +172,14 @@ namespace ProjectABM
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        // Method to refresh the DataGridView after delete.
+        private void RefreshClientesDataGridView(OracleConnection connection)
         {
-
+            var clientes = _clienteRepository.ListClientes(connection);
+            dataGridViewClientes.DataSource = clientes.ToList();
         }
+
+        private void label1_Click(object sender, EventArgs e){}
+        private void name_Click(object sender, EventArgs e) {}
     }
 }

@@ -29,7 +29,6 @@ namespace ProjectABM
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.btnGetClientes = new System.Windows.Forms.Button();
             this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
             this.buttonDeleteClient = new System.Windows.Forms.Button();
@@ -42,16 +41,6 @@ namespace ProjectABM
             this.labelClientLastName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(379, 319);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(159, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Open Connection with DB";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnGetClientes
             // 
@@ -159,7 +148,6 @@ namespace ProjectABM
             this.Controls.Add(this.buttonDeleteClient);
             this.Controls.Add(this.dataGridViewClientes);
             this.Controls.Add(this.btnGetClientes);
-            this.Controls.Add(this.button1);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
@@ -169,7 +157,6 @@ namespace ProjectABM
         }
 
         #endregion
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnGetClientes;
         private System.Windows.Forms.DataGridView dataGridViewClientes;
         private System.Windows.Forms.Button buttonDeleteClient;
