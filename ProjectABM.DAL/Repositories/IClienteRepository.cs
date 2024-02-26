@@ -13,6 +13,6 @@ namespace ProjectABM.DAL.Repositories
         IEnumerable<Cliente> ListClientes(OracleConnection connection);
         void DeleteCliente(OracleConnection connection, int clienteId);
         void UpdateCliente(OracleConnection connection, Cliente cliente);
-        //void CreateCliente(Cliente cliente);
+        void CreateCliente(OracleConnection connection, Cliente cliente);
     }
 }

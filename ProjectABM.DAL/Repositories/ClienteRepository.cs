@@ -69,6 +69,25 @@ namespace ProjectABM.DAL.Repositories
             }
         }
 
+        //create a client
+
+        public void CreateCliente(OracleConnection connection, Cliente cliente)
+        {
+            using (OracleCommand command = new OracleCommand("pkg_abm_assigment.sp_create_cliente", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("p_cliente_id", OracleDbType.Int32, ParameterDirection.Output); // Output parameter
+                command.Parameters.Add("p_cliente_nom", OracleDbType.Varchar2).Value = cliente.cliente_nom;
+                command.Parameters.Add("p_cliente_apellido", OracleDbType.Varchar2).Value = cliente.cliente_apellido;
+
+                command.ExecuteNonQuery();
+
+               // cliente.cliente_id = (int)command.Parameters["p_cliente_id"].Value;  // Get the generated ID
+            }
+        }
+
+
     }
 
     //aa

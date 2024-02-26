@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
+using ProjectABM.DAL.Models;
 using ProjectABM.DAL.Repositories;
 
 namespace ProjectABM
@@ -132,6 +133,54 @@ namespace ProjectABM
             {
                 MessageBox.Show("Please select a row or a client to update.");
             }
+        }
+
+        private void name_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //INSERT NEW CLIENTS
+        private void createNewClientButton_Click_Click(object sender, EventArgs e)
+        {
+            // Input Validation
+            if (string.IsNullOrWhiteSpace(clientNameTextBox.Text) ||
+                string.IsNullOrWhiteSpace(clientLastNameTextBox.Text))
+            {
+                MessageBox.Show("Please enter client name and last name.");
+                return;  // Stop execution if input is missing
+            }
+
+            var newCliente = new Cliente
+            {
+                cliente_nom = clientNameTextBox.Text.Trim(),
+                cliente_apellido = clientLastNameTextBox.Text.Trim()
+            };
+
+            using (var connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    _clienteRepository.CreateCliente(connection, newCliente);
+
+                    // Clear input fields
+                    clientNameTextBox.Clear();
+                    clientLastNameTextBox.Clear();
+
+                    // Optionally, refresh the DataGridView
+                    RefreshClientesDataGridView(connection);
+                }
+                catch (OracleException ex)
+                {
+                    MessageBox.Show("Error creating client: " + ex.Message);
+                }
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

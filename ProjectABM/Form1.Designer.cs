@@ -34,6 +34,12 @@ namespace ProjectABM
             this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
             this.buttonDeleteClient = new System.Windows.Forms.Button();
             this.dataGridViewClientesCellValueChanged = new System.Windows.Forms.Button();
+            this.name = new System.Windows.Forms.Label();
+            this.clientNameTextBox = new System.Windows.Forms.TextBox();
+            this.clientLastNameTextBox = new System.Windows.Forms.TextBox();
+            this.createNewClientButton_Click = new System.Windows.Forms.Button();
+            this.labelClientName = new System.Windows.Forms.Label();
+            this.labelClientLastName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,11 +91,70 @@ namespace ProjectABM
             this.dataGridViewClientesCellValueChanged.UseVisualStyleBackColor = true;
             this.dataGridViewClientesCellValueChanged.Click += new System.EventHandler(this.dataGridViewClientesCellValueChanged_Click);
             // 
+            // name
+            // 
+            this.name.AutoSize = true;
+            this.name.Location = new System.Drawing.Point(36, 38);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(63, 13);
+            this.name.TabIndex = 5;
+            this.name.Text = "Create User";
+            this.name.Click += new System.EventHandler(this.name_Click);
+            // 
+            // clientNameTextBox
+            // 
+            this.clientNameTextBox.Location = new System.Drawing.Point(126, 77);
+            this.clientNameTextBox.Name = "clientNameTextBox";
+            this.clientNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.clientNameTextBox.TabIndex = 6;
+            // 
+            // clientLastNameTextBox
+            // 
+            this.clientLastNameTextBox.Location = new System.Drawing.Point(126, 122);
+            this.clientLastNameTextBox.Name = "clientLastNameTextBox";
+            this.clientLastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.clientLastNameTextBox.TabIndex = 10;
+            // 
+            // createNewClientButton_Click
+            // 
+            this.createNewClientButton_Click.Location = new System.Drawing.Point(38, 169);
+            this.createNewClientButton_Click.Name = "createNewClientButton_Click";
+            this.createNewClientButton_Click.Size = new System.Drawing.Size(75, 23);
+            this.createNewClientButton_Click.TabIndex = 12;
+            this.createNewClientButton_Click.Text = "Create User";
+            this.createNewClientButton_Click.UseVisualStyleBackColor = true;
+            this.createNewClientButton_Click.Click += new System.EventHandler(this.createNewClientButton_Click_Click);
+            // 
+            // labelClientName
+            // 
+            this.labelClientName.AutoSize = true;
+            this.labelClientName.Location = new System.Drawing.Point(36, 80);
+            this.labelClientName.Name = "labelClientName";
+            this.labelClientName.Size = new System.Drawing.Size(64, 13);
+            this.labelClientName.TabIndex = 13;
+            this.labelClientName.Text = "Client Name";
+            this.labelClientName.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // labelClientLastName
+            // 
+            this.labelClientLastName.AutoSize = true;
+            this.labelClientLastName.Location = new System.Drawing.Point(36, 125);
+            this.labelClientLastName.Name = "labelClientLastName";
+            this.labelClientLastName.Size = new System.Drawing.Size(84, 13);
+            this.labelClientLastName.TabIndex = 14;
+            this.labelClientLastName.Text = "Client Las Name";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelClientLastName);
+            this.Controls.Add(this.labelClientName);
+            this.Controls.Add(this.createNewClientButton_Click);
+            this.Controls.Add(this.clientLastNameTextBox);
+            this.Controls.Add(this.clientNameTextBox);
+            this.Controls.Add(this.name);
             this.Controls.Add(this.dataGridViewClientesCellValueChanged);
             this.Controls.Add(this.buttonDeleteClient);
             this.Controls.Add(this.dataGridViewClientes);
@@ -99,6 +164,7 @@ namespace ProjectABM
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -108,6 +174,12 @@ namespace ProjectABM
         private System.Windows.Forms.DataGridView dataGridViewClientes;
         private System.Windows.Forms.Button buttonDeleteClient;
         private System.Windows.Forms.Button dataGridViewClientesCellValueChanged;
+        private System.Windows.Forms.Label name;
+        private System.Windows.Forms.TextBox clientNameTextBox;
+        private System.Windows.Forms.TextBox clientLastNameTextBox;
+        private System.Windows.Forms.Button createNewClientButton_Click;
+        private System.Windows.Forms.Label labelClientName;
+        private System.Windows.Forms.Label labelClientLastName;
     }
 }
 
