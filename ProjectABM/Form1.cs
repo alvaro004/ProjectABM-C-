@@ -158,5 +158,38 @@ namespace ProjectABM
 
         private void label1_Click(object sender, EventArgs e){}
         private void name_Click(object sender, EventArgs e) {}
+
+        //EVENT HANDLER TO HANDLE WHENEVER THE FORM1 IS OPEN OR NOT
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide(); // Hide Form1 may not be desired in this scenario
+            ShowWelcomeForm();
+        }
+
+        //GO BACK TO WELCOME FORM
+
+        private void returnToWelcomeButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ShowWelcomeForm();
+        }
+
+        // METHOD TO SHOW AND HIDE WELCOME FORM
+
+        private void ShowWelcomeForm()
+        {
+            var welcomeForm = Application.OpenForms.OfType<WelcomeForm>().FirstOrDefault();
+            if (welcomeForm != null)
+            {
+                welcomeForm.Show();
+            }
+            else
+            {
+                welcomeForm = new WelcomeForm();
+                welcomeForm.Show();
+            }
+        }
+
     }
 }

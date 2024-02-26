@@ -38,6 +38,7 @@ namespace ProjectABM
             this.createNewClientButton_Click = new System.Windows.Forms.Button();
             this.labelClientName = new System.Windows.Forms.Label();
             this.labelClientLastName = new System.Windows.Forms.Label();
+            this.returnToWelcomeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@ namespace ProjectABM
             // 
             this.buttonDeleteClient.Location = new System.Drawing.Point(380, 280);
             this.buttonDeleteClient.Name = "buttonDeleteClient";
-            this.buttonDeleteClient.Size = new System.Drawing.Size(75, 23);
+            this.buttonDeleteClient.Size = new System.Drawing.Size(75, 38);
             this.buttonDeleteClient.TabIndex = 3;
             this.buttonDeleteClient.Text = "Delete Client";
             this.buttonDeleteClient.UseVisualStyleBackColor = true;
@@ -63,7 +64,7 @@ namespace ProjectABM
             // 
             this.dataGridViewClientesCellValueChanged.Location = new System.Drawing.Point(482, 279);
             this.dataGridViewClientesCellValueChanged.Name = "dataGridViewClientesCellValueChanged";
-            this.dataGridViewClientesCellValueChanged.Size = new System.Drawing.Size(75, 23);
+            this.dataGridViewClientesCellValueChanged.Size = new System.Drawing.Size(75, 39);
             this.dataGridViewClientesCellValueChanged.TabIndex = 4;
             this.dataGridViewClientesCellValueChanged.Text = "Update";
             this.dataGridViewClientesCellValueChanged.UseVisualStyleBackColor = true;
@@ -97,7 +98,7 @@ namespace ProjectABM
             // 
             this.createNewClientButton_Click.Location = new System.Drawing.Point(38, 169);
             this.createNewClientButton_Click.Name = "createNewClientButton_Click";
-            this.createNewClientButton_Click.Size = new System.Drawing.Size(75, 23);
+            this.createNewClientButton_Click.Size = new System.Drawing.Size(75, 35);
             this.createNewClientButton_Click.TabIndex = 12;
             this.createNewClientButton_Click.Text = "Create User";
             this.createNewClientButton_Click.UseVisualStyleBackColor = true;
@@ -122,11 +123,22 @@ namespace ProjectABM
             this.labelClientLastName.TabIndex = 14;
             this.labelClientLastName.Text = "Client Las Name";
             // 
+            // returnToWelcomeButton
+            // 
+            this.returnToWelcomeButton.Location = new System.Drawing.Point(38, 386);
+            this.returnToWelcomeButton.Name = "returnToWelcomeButton";
+            this.returnToWelcomeButton.Size = new System.Drawing.Size(104, 38);
+            this.returnToWelcomeButton.TabIndex = 15;
+            this.returnToWelcomeButton.Text = "Go Back";
+            this.returnToWelcomeButton.UseVisualStyleBackColor = true;
+            this.returnToWelcomeButton.Click += new System.EventHandler(this.returnToWelcomeButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.returnToWelcomeButton);
             this.Controls.Add(this.labelClientLastName);
             this.Controls.Add(this.labelClientName);
             this.Controls.Add(this.createNewClientButton_Click);
@@ -138,6 +150,7 @@ namespace ProjectABM
             this.Controls.Add(this.dataGridViewClientes);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -154,6 +167,7 @@ namespace ProjectABM
         private System.Windows.Forms.Button createNewClientButton_Click;
         private System.Windows.Forms.Label labelClientName;
         private System.Windows.Forms.Label labelClientLastName;
+        private System.Windows.Forms.Button returnToWelcomeButton;
     }
 }
 
