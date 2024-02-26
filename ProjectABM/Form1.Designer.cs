@@ -29,7 +29,6 @@ namespace ProjectABM
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnGetClientes = new System.Windows.Forms.Button();
             this.dataGridViewClientes = new System.Windows.Forms.DataGridView();
             this.buttonDeleteClient = new System.Windows.Forms.Button();
             this.dataGridViewClientesCellValueChanged = new System.Windows.Forms.Button();
@@ -42,27 +41,17 @@ namespace ProjectABM
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnGetClientes
-            // 
-            this.btnGetClientes.Location = new System.Drawing.Point(379, 280);
-            this.btnGetClientes.Name = "btnGetClientes";
-            this.btnGetClientes.Size = new System.Drawing.Size(75, 23);
-            this.btnGetClientes.TabIndex = 1;
-            this.btnGetClientes.Text = "List Clients";
-            this.btnGetClientes.UseVisualStyleBackColor = true;
-            this.btnGetClientes.Click += new System.EventHandler(this.buttonGetClientes);
-            // 
             // dataGridViewClientes
             // 
             this.dataGridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClientes.Location = new System.Drawing.Point(379, 38);
+            this.dataGridViewClientes.Location = new System.Drawing.Point(380, 38);
             this.dataGridViewClientes.Name = "dataGridViewClientes";
-            this.dataGridViewClientes.Size = new System.Drawing.Size(370, 220);
+            this.dataGridViewClientes.Size = new System.Drawing.Size(340, 220);
             this.dataGridViewClientes.TabIndex = 2;
             // 
             // buttonDeleteClient
             // 
-            this.buttonDeleteClient.Location = new System.Drawing.Point(460, 280);
+            this.buttonDeleteClient.Location = new System.Drawing.Point(380, 280);
             this.buttonDeleteClient.Name = "buttonDeleteClient";
             this.buttonDeleteClient.Size = new System.Drawing.Size(75, 23);
             this.buttonDeleteClient.TabIndex = 3;
@@ -72,7 +61,7 @@ namespace ProjectABM
             // 
             // dataGridViewClientesCellValueChanged
             // 
-            this.dataGridViewClientesCellValueChanged.Location = new System.Drawing.Point(562, 279);
+            this.dataGridViewClientesCellValueChanged.Location = new System.Drawing.Point(482, 279);
             this.dataGridViewClientesCellValueChanged.Name = "dataGridViewClientesCellValueChanged";
             this.dataGridViewClientesCellValueChanged.Size = new System.Drawing.Size(75, 23);
             this.dataGridViewClientesCellValueChanged.TabIndex = 4;
@@ -147,7 +136,6 @@ namespace ProjectABM
             this.Controls.Add(this.dataGridViewClientesCellValueChanged);
             this.Controls.Add(this.buttonDeleteClient);
             this.Controls.Add(this.dataGridViewClientes);
-            this.Controls.Add(this.btnGetClientes);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();
@@ -157,7 +145,6 @@ namespace ProjectABM
         }
 
         #endregion
-        private System.Windows.Forms.Button btnGetClientes;
         private System.Windows.Forms.DataGridView dataGridViewClientes;
         private System.Windows.Forms.Button buttonDeleteClient;
         private System.Windows.Forms.Button dataGridViewClientesCellValueChanged;

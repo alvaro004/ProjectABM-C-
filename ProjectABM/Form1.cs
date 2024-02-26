@@ -42,29 +42,6 @@ namespace ProjectABM
         }
 
 
-
-        //GET CLIENTS
-
-        private void buttonGetClientes(object sender, EventArgs e)
-        {
-            using (OracleConnection connection = new OracleConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    var clientes = _clienteRepository.ListClientes(connection);
-                    // Do something with the retrieved clientes, like binding to a grid view
-                    dataGridViewClientes.DataSource = clientes.ToList();
-
-
-                }
-                catch (OracleException ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            }
-        }
-
         //DELETE CLIENT
 
         private void buttonDeleteClient_Click(object sender, EventArgs e)
