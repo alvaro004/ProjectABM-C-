@@ -46,18 +46,21 @@ namespace ProjectABM
             Articulo articulo = new Articulo();
             articulo.articulo_fecha = dateTimePickerArticulo.Value;
 
-            try
+            using (OracleConnection connection = new OracleConnection(connectionString))
             {
-                using (OracleConnection connection = new OracleConnection(connectionString))
+                try
                 {
                     connection.Open();
                     _articuloRepository.CreateArticulo(connection, articulo);
                     MessageBox.Show("Article Created Successfully!");
+
+                    //Refresh the data Grid
+                    RefreshClientesDataGridView(connection);
                 }
-            }
-            catch(Exception ex)
-            {
-                MessageBox.Show("Error creating article: " + ex.Message);
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Error creating article: " + ex.Message);
+                }
             }
         }
 
@@ -91,6 +94,20 @@ namespace ProjectABM
         {
             this.Hide();
             ShowWelcomeForm();
+        }
+
+        // Method to refresh the DataGridView after delete.
+        private void RefreshClientesDataGridView(OracleConnection connection)
+        {
+            var articulos = _articuloRepository.ListArticulos(connection);
+            dataGridViewArticulos.DataSource = articulos.ToList();
+        }
+
+        //DELETE AN ARTICULO
+
+        private void buttonDeleteArticulo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

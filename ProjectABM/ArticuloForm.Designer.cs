@@ -36,6 +36,7 @@ namespace ProjectABM
             this.CreateNewArticule = new System.Windows.Forms.Button();
             this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
             this.returnToWelcomeButton = new System.Windows.Forms.Button();
+            this.buttonDeleteArticulo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,19 +90,30 @@ namespace ProjectABM
             // 
             // returnToWelcomeButton
             // 
-            this.returnToWelcomeButton.Location = new System.Drawing.Point(28, 407);
+            this.returnToWelcomeButton.Location = new System.Drawing.Point(28, 468);
             this.returnToWelcomeButton.Name = "returnToWelcomeButton";
-            this.returnToWelcomeButton.Size = new System.Drawing.Size(94, 31);
+            this.returnToWelcomeButton.Size = new System.Drawing.Size(110, 31);
             this.returnToWelcomeButton.TabIndex = 16;
             this.returnToWelcomeButton.Text = "Go Back";
             this.returnToWelcomeButton.UseVisualStyleBackColor = true;
             this.returnToWelcomeButton.Click += new System.EventHandler(this.returnToWelcomeButton_Click);
             // 
+            // buttonDeleteArticulo
+            // 
+            this.buttonDeleteArticulo.Location = new System.Drawing.Point(28, 399);
+            this.buttonDeleteArticulo.Name = "buttonDeleteArticulo";
+            this.buttonDeleteArticulo.Size = new System.Drawing.Size(110, 31);
+            this.buttonDeleteArticulo.TabIndex = 17;
+            this.buttonDeleteArticulo.Text = "Delete Articulo";
+            this.buttonDeleteArticulo.UseVisualStyleBackColor = true;
+            this.buttonDeleteArticulo.Click += new System.EventHandler(this.buttonDeleteArticulo_Click);
+            // 
             // ArticuloForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 450);
+            this.ClientSize = new System.Drawing.Size(601, 511);
+            this.Controls.Add(this.buttonDeleteArticulo);
             this.Controls.Add(this.returnToWelcomeButton);
             this.Controls.Add(this.dataGridViewArticulos);
             this.Controls.Add(this.CreateNewArticule);
@@ -126,5 +138,6 @@ namespace ProjectABM
         private System.Windows.Forms.Button CreateNewArticule;
         private System.Windows.Forms.DataGridView dataGridViewArticulos;
         private System.Windows.Forms.Button returnToWelcomeButton;
+        private System.Windows.Forms.Button buttonDeleteArticulo;
     }
 }
