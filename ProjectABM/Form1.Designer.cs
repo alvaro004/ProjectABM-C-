@@ -75,9 +75,9 @@ namespace ProjectABM
             this.name.AutoSize = true;
             this.name.Location = new System.Drawing.Point(36, 38);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(63, 13);
+            this.name.Size = new System.Drawing.Size(71, 13);
             this.name.TabIndex = 5;
-            this.name.Text = "Create User";
+            this.name.Text = "Manage User";
             this.name.Click += new System.EventHandler(this.name_Click);
             // 
             // clientNameTextBox

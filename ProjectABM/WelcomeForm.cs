@@ -23,5 +23,12 @@ namespace ProjectABM
             clientForm.Show();
             this.Hide();  //hide the welcome form
         }
+
+        private void manageArticulosButton_Click_Click_Click(object sender, EventArgs e)
+        {
+            var articuloForm = new ArticuloForm();
+            articuloForm.Show();
+            this.Hide();
+        }
     }
 }

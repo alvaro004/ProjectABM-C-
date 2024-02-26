@@ -29,12 +29,102 @@ namespace ProjectABM
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.labelArticuleTitle = new System.Windows.Forms.Label();
+            this.labelDataText = new System.Windows.Forms.Label();
+            this.dateTimePickerArticulo = new System.Windows.Forms.DateTimePicker();
+            this.oracleCommandBuilder1 = new Oracle.ManagedDataAccess.Client.OracleCommandBuilder();
+            this.CreateNewArticule = new System.Windows.Forms.Button();
+            this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
+            this.returnToWelcomeButton = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // labelArticuleTitle
+            // 
+            this.labelArticuleTitle.AutoSize = true;
+            this.labelArticuleTitle.Location = new System.Drawing.Point(25, 25);
+            this.labelArticuleTitle.Name = "labelArticuleTitle";
+            this.labelArticuleTitle.Size = new System.Drawing.Size(84, 13);
+            this.labelArticuleTitle.TabIndex = 0;
+            this.labelArticuleTitle.Text = "Manage Articulo";
+            // 
+            // labelDataText
+            // 
+            this.labelDataText.AutoSize = true;
+            this.labelDataText.Location = new System.Drawing.Point(25, 58);
+            this.labelDataText.Name = "labelDataText";
+            this.labelDataText.Size = new System.Drawing.Size(68, 13);
+            this.labelDataText.TabIndex = 1;
+            this.labelDataText.Text = "Articulo Date";
+            // 
+            // dateTimePickerArticulo
+            // 
+            this.dateTimePickerArticulo.Location = new System.Drawing.Point(113, 56);
+            this.dateTimePickerArticulo.Name = "dateTimePickerArticulo";
+            this.dateTimePickerArticulo.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerArticulo.TabIndex = 2;
+            // 
+            // oracleCommandBuilder1
+            // 
+            this.oracleCommandBuilder1.CatalogLocation = System.Data.Common.CatalogLocation.End;
+            this.oracleCommandBuilder1.CatalogSeparator = "@";
+            // 
+            // CreateNewArticule
+            // 
+            this.CreateNewArticule.Location = new System.Drawing.Point(28, 94);
+            this.CreateNewArticule.Name = "CreateNewArticule";
+            this.CreateNewArticule.Size = new System.Drawing.Size(285, 33);
+            this.CreateNewArticule.TabIndex = 3;
+            this.CreateNewArticule.Text = "Create Articulo";
+            this.CreateNewArticule.UseVisualStyleBackColor = true;
+            this.CreateNewArticule.Click += new System.EventHandler(this.CreateNewArticule_Click);
+            // 
+            // dataGridViewArticulos
+            // 
+            this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewArticulos.Location = new System.Drawing.Point(28, 156);
+            this.dataGridViewArticulos.Name = "dataGridViewArticulos";
+            this.dataGridViewArticulos.Size = new System.Drawing.Size(385, 228);
+            this.dataGridViewArticulos.TabIndex = 4;
+            // 
+            // returnToWelcomeButton
+            // 
+            this.returnToWelcomeButton.Location = new System.Drawing.Point(28, 407);
+            this.returnToWelcomeButton.Name = "returnToWelcomeButton";
+            this.returnToWelcomeButton.Size = new System.Drawing.Size(94, 31);
+            this.returnToWelcomeButton.TabIndex = 16;
+            this.returnToWelcomeButton.Text = "Go Back";
+            this.returnToWelcomeButton.UseVisualStyleBackColor = true;
+            this.returnToWelcomeButton.Click += new System.EventHandler(this.returnToWelcomeButton_Click);
+            // 
+            // ArticuloForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(601, 450);
+            this.Controls.Add(this.returnToWelcomeButton);
+            this.Controls.Add(this.dataGridViewArticulos);
+            this.Controls.Add(this.CreateNewArticule);
+            this.Controls.Add(this.dateTimePickerArticulo);
+            this.Controls.Add(this.labelDataText);
+            this.Controls.Add(this.labelArticuleTitle);
+            this.Name = "ArticuloForm";
             this.Text = "ArticuloForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ArticuloForm_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Label labelArticuleTitle;
+        private System.Windows.Forms.Label labelDataText;
+        private System.Windows.Forms.DateTimePicker dateTimePickerArticulo;
+        private Oracle.ManagedDataAccess.Client.OracleCommandBuilder oracleCommandBuilder1;
+        private System.Windows.Forms.Button CreateNewArticule;
+        private System.Windows.Forms.DataGridView dataGridViewArticulos;
+        private System.Windows.Forms.Button returnToWelcomeButton;
     }
 }

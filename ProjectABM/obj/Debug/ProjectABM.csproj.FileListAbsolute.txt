@@ -34,3 +34,4 @@ C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\bin\Debug\ProjectAB
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\bin\Debug\ProjectABM.DAL.pdb
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\bin\Debug\ProjectABM.DAL.dll.config
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\obj\Debug\ProjectABM.WelcomeForm.resources
+C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM\obj\Debug\ProjectABM.ArticuloForm.resources

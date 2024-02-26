@@ -112,7 +112,7 @@ namespace ProjectABM
             }
         }
 
-        //INSERT NEW CLIENTS
+        //CREATE A NEW CLIENT
 
         private void createNewClientButton_Click_Click(object sender, EventArgs e)
         {

@@ -23,7 +23,6 @@ namespace ProjectABM.DAL.Repositories
                 var output = command.Parameters.Add("po_clientes", OracleDbType.RefCursor);
                 output.Direction = ParameterDirection.Output;
 
-                // Assuming connection is already open, we don't open it here
                 using (var reader = command.ExecuteReader())
                 {
                     while (reader.Read())
@@ -87,7 +86,7 @@ namespace ProjectABM.DAL.Repositories
             }
         }
 
-
+        
     }
 
     //aa
