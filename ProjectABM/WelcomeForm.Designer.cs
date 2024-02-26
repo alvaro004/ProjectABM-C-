@@ -36,7 +36,7 @@ namespace ProjectABM
             // labelWelcome
             // 
             this.labelWelcome.AutoSize = true;
-            this.labelWelcome.Location = new System.Drawing.Point(281, 42);
+            this.labelWelcome.Location = new System.Drawing.Point(298, 43);
             this.labelWelcome.Name = "labelWelcome";
             this.labelWelcome.Size = new System.Drawing.Size(225, 13);
             this.labelWelcome.TabIndex = 0;
@@ -44,7 +44,7 @@ namespace ProjectABM
             // 
             // manageClientsButton_Click
             // 
-            this.manageClientsButton_Click.Location = new System.Drawing.Point(322, 88);
+            this.manageClientsButton_Click.Location = new System.Drawing.Point(339, 89);
             this.manageClientsButton_Click.Name = "manageClientsButton_Click";
             this.manageClientsButton_Click.Size = new System.Drawing.Size(126, 41);
             this.manageClientsButton_Click.TabIndex = 1;

@@ -10,13 +10,15 @@ using System.Windows.Forms;
 using Oracle.ManagedDataAccess.Client;
 using ProjectABM.DAL.Models;
 using ProjectABM.DAL.Repositories;
+using System.Configuration;
 
 namespace ProjectABM
 {
     public partial class Form1 : Form
     {
         //creating the DB connection
-        private string connectionString = "Data Source=10.6.2.148:1521/dbitades;User Id=ADN;Password=12345678;";
+        //the config for the DB conecction is in the APP.config file in this folder
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["MyDatabaseConnection"].ConnectionString;
 
         private readonly IClienteRepository _clienteRepository;
 
