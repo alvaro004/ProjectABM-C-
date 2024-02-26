@@ -12,5 +12,6 @@ namespace ProjectABM.DAL.Repositories
     {
         void CreateArticulo(OracleConnection connection, Articulo articulo);
         IEnumerable<Articulo> ListArticulos(OracleConnection connection);
+        void DeleteArticulo(OracleConnection connection, int articuloId);
     }
 }

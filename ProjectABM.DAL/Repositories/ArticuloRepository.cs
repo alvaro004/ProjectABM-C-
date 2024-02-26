@@ -12,7 +12,7 @@ namespace ProjectABM.DAL.Repositories
 {
     public class ArticuloRepository : IArticuloRepository // Implement the interface
     {
-       // private string connectionString = ConfigurationManager.ConnectionStrings["MyDatabaseConnection"].ConnectionString; 
+        //CREATE A NEW ARTICULO
 
         public void CreateArticulo(OracleConnection connection, Articulo articulo) 
         {
@@ -59,5 +59,18 @@ namespace ProjectABM.DAL.Repositories
 
             return articulos;
         }
+
+        //DELETE AN ARTICULO
+        public void DeleteArticulo(OracleConnection connection, int articulo_id)
+        {
+            using (var command = new OracleCommand("pkg_abm_assigment.sp_delete_articulo", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("p_articulo_id", OracleDbType.Int32).Value = articulo_id;
+
+                command.ExecuteNonQuery(); // Executes the delete stored procedure.
+            }
+        }
+
     }
 }

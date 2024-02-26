@@ -107,7 +107,32 @@ namespace ProjectABM
 
         private void buttonDeleteArticulo_Click(object sender, EventArgs e)
         {
+            // Get the selected row.
+            if (dataGridViewArticulos.SelectedRows.Count > 0)
+            {
+                // Assuming an Articulo_id column
+                int selectedArticuloId = Convert.ToInt32(dataGridViewArticulos.SelectedRows[0].Cells["Articulo_id"].Value);
 
+                using (OracleConnection connection = new OracleConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        _articuloRepository.DeleteArticulo(connection, selectedArticuloId);
+
+                        // Optionally, refresh the DataGridView.
+                        RefreshClientesDataGridView(connection); // Assuming you have such a method.
+                    }
+                    catch (OracleException ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row or an article to delete.");
+            }
         }
     }
 }
