@@ -45,6 +45,7 @@ namespace ProjectABM
         }
 
         //CREATE A NEW ARTICULO
+
         private void CreateNewArticule_Click(object sender, EventArgs e)
         {
             Articulo articulo = new Articulo();
@@ -101,6 +102,7 @@ namespace ProjectABM
         }
 
         // Method to refresh the DataGridView after delete.
+
         private void RefreshClientesDataGridView(OracleConnection connection)
         {
             var articulos = _articuloRepository.ListArticulos(connection);
@@ -124,8 +126,8 @@ namespace ProjectABM
                         connection.Open();
                         _articuloRepository.DeleteArticulo(connection, selectedArticuloId);
 
-                        // Optionally, refresh the DataGridView.
-                        RefreshClientesDataGridView(connection); // Assuming you have such a method.
+                        // Refresh the DataGridView
+                        CallMethodutilRefreshDataGrid(connection);
                     }
                     catch (OracleException ex)
                     {
@@ -152,8 +154,9 @@ namespace ProjectABM
                     {
                         connection.Open();
                         _articuloRepository.UpdateArticulo(connection, articuloToUpdate);
-                        RefreshClientesDataGridView(connection); // Refresh if needed
                         MessageBox.Show("Article updated!");
+                        // Refresh the DataGridView
+                        CallMethodutilRefreshDataGrid(connection);
                     }
                     catch (OracleException ex)
                     {
@@ -196,6 +199,14 @@ namespace ProjectABM
             //articulo.articulo_fecha = dateTimePickerArticulo.Value;
 
             return articulo;
+        }
+
+        //METHOD TO CALL THE METHOD UTILS TO REFRESH THE DATA GRID
+
+        private void CallMethodutilRefreshDataGrid(OracleConnection connection)
+        {
+            var articulos = _articuloRepository.ListArticulos(connection);
+            MethodUtils.RefreshDataGridView<Articulo>(dataGridViewArticulos, articulos, connection);
         }
 
     }
