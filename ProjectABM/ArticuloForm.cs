@@ -24,6 +24,9 @@ namespace ProjectABM
             InitializeComponent();
             _articuloRepository = new ArticuloRepository();
 
+            // Attach the event handler here
+            dataGridViewArticulos.CellEnter += dataGridViewArticulos_CellEnter;
+
             //FETCH AND LIST ARTICULOS WHEN THE WINDOWS FORM IS OPEN
             using (OracleConnection connection = new OracleConnection(connectionString))
             {
@@ -162,6 +165,24 @@ namespace ProjectABM
                 MessageBox.Show("Please select a row or an article to update.");
             }
         }
+
+        //METHOD TO AVOID THE ID FIELD MANIPULATION IN THE DATA GRID
+
+        private void dataGridViewArticulos_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            // Check for ID column
+            if (e.ColumnIndex == dataGridViewArticulos.Columns["articulo_id"].Index)
+            {
+                // Prevent editing by making the cell read-only
+                dataGridViewArticulos.CurrentCell.ReadOnly = true;
+            }
+            else
+            {
+                // Allow editing for other cells
+                dataGridViewArticulos.CurrentCell.ReadOnly = false;
+            }
+        }
+
 
         //Helper Method to Extract Data
         private Articulo GetArticuloFromForm()
