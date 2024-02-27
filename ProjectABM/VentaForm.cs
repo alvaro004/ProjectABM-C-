@@ -94,6 +94,27 @@ namespace ProjectABM
                 }
             }
         }
+
+        private void returnToWelcomeButton_Click_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ShowWelcomeForm();
+        }
+
+        // METHOD TO SHOW AND HIDE WELCOME FORM 
+        private void ShowWelcomeForm()
+        {
+            var welcomeForm = Application.OpenForms.OfType<WelcomeForm>().FirstOrDefault();
+            if (welcomeForm != null)
+            {
+                welcomeForm.Show();
+            }
+            else
+            {
+                welcomeForm = new WelcomeForm();
+                welcomeForm.Show();
+            }
+        }
     }
 
 }

@@ -35,6 +35,7 @@ namespace ProjectABM
             this.comboBoxClient = new System.Windows.Forms.ComboBox();
             this.buttonCreateVenta = new System.Windows.Forms.Button();
             this.dataGridViewVenta = new System.Windows.Forms.DataGridView();
+            this.returnToWelcomeButton_Click = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,11 +90,22 @@ namespace ProjectABM
             this.dataGridViewVenta.Size = new System.Drawing.Size(414, 150);
             this.dataGridViewVenta.TabIndex = 5;
             // 
+            // returnToWelcomeButton_Click
+            // 
+            this.returnToWelcomeButton_Click.Location = new System.Drawing.Point(27, 390);
+            this.returnToWelcomeButton_Click.Name = "returnToWelcomeButton_Click";
+            this.returnToWelcomeButton_Click.Size = new System.Drawing.Size(124, 32);
+            this.returnToWelcomeButton_Click.TabIndex = 6;
+            this.returnToWelcomeButton_Click.Text = "Go Back";
+            this.returnToWelcomeButton_Click.UseVisualStyleBackColor = true;
+            this.returnToWelcomeButton_Click.Click += new System.EventHandler(this.returnToWelcomeButton_Click_Click);
+            // 
             // VentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.returnToWelcomeButton_Click);
             this.Controls.Add(this.dataGridViewVenta);
             this.Controls.Add(this.buttonCreateVenta);
             this.Controls.Add(this.comboBoxClient);
@@ -116,5 +128,6 @@ namespace ProjectABM
         private System.Windows.Forms.ComboBox comboBoxClient;
         private System.Windows.Forms.Button buttonCreateVenta;
         private System.Windows.Forms.DataGridView dataGridViewVenta;
+        private System.Windows.Forms.Button returnToWelcomeButton_Click;
     }
 }
