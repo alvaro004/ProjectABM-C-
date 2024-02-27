@@ -16,7 +16,7 @@ namespace ProjectABM
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new VentaForm());
+            Application.Run(new WelcomeForm());
         }
     }
 }

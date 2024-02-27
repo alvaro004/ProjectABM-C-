@@ -20,13 +20,31 @@ namespace ProjectABM
         //the config for the DB conecction is in the APP.config file in this folder
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["MyDatabaseConnection"].ConnectionString;
 
-        private readonly IVentaRepository _ventaRepository;
+        private readonly IVentaRepository _ventaRepository; //bring all the methonds from the interface
 
         public VentaForm()
         {
             InitializeComponent();
+
             this.Load += new EventHandler(VentaForm_Load);
-            _ventaRepository = new VentaRepository();
+
+            _ventaRepository = new VentaRepository(); 
+
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    var ventas = _ventaRepository.ListVentas(connection);
+                    MethodUtils.RefreshDataGridView(dataGridViewVenta, ventas, connection);
+                }
+                catch (OracleException ex)
+                {
+                    MessageBox.Show("Error fetching sales data: " + ex.Message);
+                }
+            }
+
+
         }
 
         //We are going to focus on retrieve all the clients and its IDs

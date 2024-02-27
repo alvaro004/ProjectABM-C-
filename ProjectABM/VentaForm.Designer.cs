@@ -34,6 +34,8 @@ namespace ProjectABM
             this.dateTimePickerVenta = new System.Windows.Forms.DateTimePicker();
             this.comboBoxClient = new System.Windows.Forms.ComboBox();
             this.buttonCreateVenta = new System.Windows.Forms.Button();
+            this.dataGridViewVenta = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).BeginInit();
             this.SuspendLayout();
             // 
             // labelVentaFecha
@@ -79,11 +81,20 @@ namespace ProjectABM
             this.buttonCreateVenta.UseVisualStyleBackColor = true;
             this.buttonCreateVenta.Click += new System.EventHandler(this.buttonCreateVenta_Click);
             // 
+            // dataGridViewVenta
+            // 
+            this.dataGridViewVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewVenta.Location = new System.Drawing.Point(307, 51);
+            this.dataGridViewVenta.Name = "dataGridViewVenta";
+            this.dataGridViewVenta.Size = new System.Drawing.Size(414, 150);
+            this.dataGridViewVenta.TabIndex = 5;
+            // 
             // VentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dataGridViewVenta);
             this.Controls.Add(this.buttonCreateVenta);
             this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.dateTimePickerVenta);
@@ -91,6 +102,7 @@ namespace ProjectABM
             this.Controls.Add(this.labelVentaFecha);
             this.Name = "VentaForm";
             this.Text = "VentaForm";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,5 +115,6 @@ namespace ProjectABM
         private System.Windows.Forms.DateTimePicker dateTimePickerVenta;
         private System.Windows.Forms.ComboBox comboBoxClient;
         private System.Windows.Forms.Button buttonCreateVenta;
+        private System.Windows.Forms.DataGridView dataGridViewVenta;
     }
 }

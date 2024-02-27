@@ -32,6 +32,7 @@ namespace ProjectABM
             this.labelWelcome = new System.Windows.Forms.Label();
             this.manageClientsButton_Click = new System.Windows.Forms.Button();
             this.manageArticulosButton_Click_Click = new System.Windows.Forms.Button();
+            this.manageVentasButton_Click = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelWelcome
@@ -63,11 +64,22 @@ namespace ProjectABM
             this.manageArticulosButton_Click_Click.UseVisualStyleBackColor = true;
             this.manageArticulosButton_Click_Click.Click += new System.EventHandler(this.manageArticulosButton_Click_Click_Click);
             // 
+            // manageVentasButton_Click
+            // 
+            this.manageVentasButton_Click.Location = new System.Drawing.Point(339, 221);
+            this.manageVentasButton_Click.Name = "manageVentasButton_Click";
+            this.manageVentasButton_Click.Size = new System.Drawing.Size(126, 41);
+            this.manageVentasButton_Click.TabIndex = 3;
+            this.manageVentasButton_Click.Text = "Manage Ventas";
+            this.manageVentasButton_Click.UseVisualStyleBackColor = true;
+            this.manageVentasButton_Click.Click += new System.EventHandler(this.manageVentasButton_Click_Click);
+            // 
             // WelcomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.manageVentasButton_Click);
             this.Controls.Add(this.manageArticulosButton_Click_Click);
             this.Controls.Add(this.manageClientsButton_Click);
             this.Controls.Add(this.labelWelcome);
@@ -83,5 +95,6 @@ namespace ProjectABM
         private System.Windows.Forms.Label labelWelcome;
         private System.Windows.Forms.Button manageClientsButton_Click;
         private System.Windows.Forms.Button manageArticulosButton_Click_Click;
+        private System.Windows.Forms.Button manageVentasButton_Click;
     }
 }

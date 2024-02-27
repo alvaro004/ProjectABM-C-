@@ -30,5 +30,12 @@ namespace ProjectABM
             articuloForm.Show();
             this.Hide();
         }
+
+        private void manageVentasButton_Click_Click(object sender, EventArgs e)
+        {
+            var ventaForm = new VentaForm();
+            ventaForm.Show();
+            this.Hide();
+        }
     }
 }
