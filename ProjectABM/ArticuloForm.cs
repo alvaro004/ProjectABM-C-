@@ -25,10 +25,10 @@ namespace ProjectABM
             InitializeComponent();
             _articuloRepository = new ArticuloRepository();
 
-            //call event handler to prevent edit ID in the Data Grid
+            //call event handler to prevent edit ID in the Data Grid 
             MethodUtils.PreventIdEditing(dataGridViewArticulos, "articulo_id");
 
-            //FETCH AND LIST ARTICULOS WHEN THE WINDOWS FORM IS OPEN
+            //FETCH AND LIST ARTICULOS WHEN THE WINDOWS FORM IS OPEN 
             using (OracleConnection connection = new OracleConnection(connectionString))
             {
                 try
@@ -44,8 +44,7 @@ namespace ProjectABM
             }
         }
 
-        //CREATE A NEW ARTICULO
-
+        //CREATE A NEW ARTICULO 
         private void CreateNewArticule_Click(object sender, EventArgs e)
         {
             Articulo articulo = new Articulo();
@@ -69,8 +68,7 @@ namespace ProjectABM
             }
         }
 
-        // METHOD TO SHOW AND HIDE WELCOME FORM
-
+        // METHOD TO SHOW AND HIDE WELCOME FORM 
         private void ShowWelcomeForm()
         {
             var welcomeForm = Application.OpenForms.OfType<WelcomeForm>().FirstOrDefault();
@@ -85,32 +83,28 @@ namespace ProjectABM
             }
         }
 
-        ////GO BACK TO WELCOME FORM WHEN THE WINDOW IS CLOSED
-
+        ////GO BACK TO WELCOME FORM WHEN THE WINDOW IS CLOSED 
         private void ArticuloForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide();
             ShowWelcomeForm();
         }
 
-        //GO BACK TO WELCOME FORM
-
+        //GO BACK TO WELCOME FORM 
         private void returnToWelcomeButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             ShowWelcomeForm();
         }
 
-        // Method to refresh the DataGridView after delete.
-
+        // Method to refresh the DataGridView after delete. 
         private void RefreshClientesDataGridView(OracleConnection connection)
         {
             var articulos = _articuloRepository.ListArticulos(connection);
             dataGridViewArticulos.DataSource = articulos.ToList();
         }
 
-        //DELETE AN ARTICULO
-
+        //DELETE AN ARTICULO 
         private void buttonDeleteArticulo_Click(object sender, EventArgs e)
         {
             // Get the selected row.
@@ -170,39 +164,19 @@ namespace ProjectABM
             }
         }
 
-        //METHOD TO AVOID THE ID FIELD MANIPULATION IN THE DATA GRID
-
-        private void dataGridViewArticulos_CellEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            // Check for ID column
-            if (e.ColumnIndex == dataGridViewArticulos.Columns["articulo_id"].Index)
-            {
-                // Prevent editing by making the cell read-only
-                dataGridViewArticulos.CurrentCell.ReadOnly = true;
-            }
-            else
-            {
-                // Allow editing for other cells
-                dataGridViewArticulos.CurrentCell.ReadOnly = false;
-            }
-        }
-
-
-        //Helper Method to Extract Data
+         //Helper Method to Extract Data 
         private Articulo GetArticuloFromForm()
         {
             Articulo articulo = new Articulo();
             articulo.articulo_id = Convert.ToInt32(dataGridViewArticulos.SelectedRows[0].Cells["articulo_id"].Value);
 
-            // Extract DateTime (assuming a column named 'Fecha' of DateTime type)
+            // Extract DateTime
             articulo.articulo_fecha = Convert.ToDateTime(dataGridViewArticulos.SelectedRows[0].Cells["articulo_fecha"].Value);
-            //articulo.articulo_fecha = dateTimePickerArticulo.Value;
 
             return articulo;
         }
 
-        //METHOD TO CALL THE METHOD UTILS TO REFRESH THE DATA GRID
-
+        //METHOD TO CALL THE METHOD UTILS TO REFRESH THE DATA GRID 
         private void CallMethodutilRefreshDataGrid(OracleConnection connection)
         {
             var articulos = _articuloRepository.ListArticulos(connection);

@@ -25,9 +25,6 @@ namespace ProjectABM.DAL.Repositories
                 command.Parameters.Add("p_articulo_fecha", OracleDbType.Date).Value = articulo.articulo_fecha;
 
                 command.ExecuteNonQuery();    
-
-                // Retrieve the generated ID 
-                //articulo.articulo_id = (int)command.Parameters["p_articulo_id"].Value;  
             }
         }
 

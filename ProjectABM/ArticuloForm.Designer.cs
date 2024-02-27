@@ -86,7 +86,7 @@ namespace ProjectABM
             this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewArticulos.Location = new System.Drawing.Point(28, 156);
             this.dataGridViewArticulos.Name = "dataGridViewArticulos";
-            this.dataGridViewArticulos.Size = new System.Drawing.Size(385, 228);
+            this.dataGridViewArticulos.Size = new System.Drawing.Size(285, 228);
             this.dataGridViewArticulos.TabIndex = 4;
             // 
             // returnToWelcomeButton
@@ -123,7 +123,7 @@ namespace ProjectABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(601, 511);
+            this.ClientSize = new System.Drawing.Size(375, 511);
             this.Controls.Add(this.buttonUpdateArticulo);
             this.Controls.Add(this.buttonDeleteArticulo);
             this.Controls.Add(this.returnToWelcomeButton);
