@@ -79,7 +79,7 @@ namespace ProjectABM.DAL.Repositories
             {
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.Add("p_articulo_id", OracleDbType.Int32, ParameterDirection.Output);
+                command.Parameters.Add("p_articulo_id", OracleDbType.Int32).Value = articulo.articulo_id;
                 command.Parameters.Add("p_articulo_fecha", OracleDbType.Date).Value = articulo.articulo_fecha;
 
                 command.ExecuteNonQuery();

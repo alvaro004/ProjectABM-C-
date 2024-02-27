@@ -44,7 +44,7 @@ namespace ProjectABM
         private void CreateNewArticule_Click(object sender, EventArgs e)
         {
             Articulo articulo = new Articulo();
-            articulo.articulo_fecha = dateTimePickerArticulo.Value;
+            articulo.articulo_fecha = dateTimePickerArticulo.Value.Date;
 
             using (OracleConnection connection = new OracleConnection(connectionString))
             {
@@ -138,7 +138,43 @@ namespace ProjectABM
         //UPDATE ARTICULO
         private void buttonUpdateArticulo_Click(object sender, EventArgs e)
         {
+            if(dataGridViewArticulos.SelectedRows.Count > 0)
+            {
+                Articulo articuloToUpdate = GetArticuloFromForm();
 
+                using (OracleConnection connection = new OracleConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        _articuloRepository.UpdateArticulo(connection, articuloToUpdate);
+                        RefreshClientesDataGridView(connection); // Refresh if needed
+                        MessageBox.Show("Article updated!");
+                    }
+                    catch (OracleException ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row or an article to update.");
+            }
         }
+
+        //Helper Method to Extract Data
+        private Articulo GetArticuloFromForm()
+        {
+            Articulo articulo = new Articulo();
+            articulo.articulo_id = Convert.ToInt32(dataGridViewArticulos.SelectedRows[0].Cells["articulo_id"].Value);
+
+            // Extract DateTime (assuming a column named 'Fecha' of DateTime type)
+            articulo.articulo_fecha = Convert.ToDateTime(dataGridViewArticulos.SelectedRows[0].Cells["articulo_fecha"].Value);
+            //articulo.articulo_fecha = dateTimePickerArticulo.Value;
+
+            return articulo;
+        }
+
     }
 }
