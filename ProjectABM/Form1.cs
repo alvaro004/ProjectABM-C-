@@ -27,6 +27,9 @@ namespace ProjectABM
             InitializeComponent();
             _clienteRepository = new ClienteRepository();
 
+            //call event handler to prevent edit ID in the Data Grid
+            MethodUtils.PreventIdEditing(dataGridViewClientes, "cliente_id");
+
             // Fetch and list clients when the windows form is open:
             using (OracleConnection connection = new OracleConnection(connectionString))
             {

@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ProjectABM
 {
     public partial class ArticuloForm : Form
@@ -24,8 +25,8 @@ namespace ProjectABM
             InitializeComponent();
             _articuloRepository = new ArticuloRepository();
 
-            // Attach the event handler here
-            dataGridViewArticulos.CellEnter += dataGridViewArticulos_CellEnter;
+            //call event handler to prevent edit ID in the Data Grid
+            MethodUtils.PreventIdEditing(dataGridViewArticulos, "articulo_id");
 
             //FETCH AND LIST ARTICULOS WHEN THE WINDOWS FORM IS OPEN
             using (OracleConnection connection = new OracleConnection(connectionString))
