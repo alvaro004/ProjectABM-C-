@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace ProjectABM.DAL.Models
 {
-    class Venta
+    public class Venta
     {
+        public int venta_id { get; set; } // Primary Key
+        public DateTime venta_fecha { get; set; }
+        public int cliente_cliente_id { get; set; } // Foreign Key
     }
 }

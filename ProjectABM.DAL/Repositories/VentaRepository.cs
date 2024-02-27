@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ProjectABM.DAL.Repositories
 {
-    public class VentaRepository
+    public class VentaRepository : IVentaRepository
     {
 
         //FETCH AND RETRIEVE ALL THE VENTAS
@@ -41,5 +41,25 @@ namespace ProjectABM.DAL.Repositories
 
             return ventas;
         }
+
+        //CREATE A VENTA
+        //THIS IMPLEMENTATION IS NOT GOING TO WORK!!!!!!!!!!! 27/02/24
+        public void CreateVenta(OracleConnection connection, Venta venta)
+        {
+            using (OracleCommand command = new OracleCommand("pkg_abm_assigment.sp_create_venta", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("p_venta_id", OracleDbType.Int32, ParameterDirection.Output); // Assuming ID is auto-generated
+                command.Parameters.Add("p_venta_fecha", OracleDbType.Date).Value = venta.venta_fecha;
+                command.Parameters.Add("p_cliente_cliente_id", OracleDbType.Int32).Value = venta.cliente_cliente_id;
+
+                command.ExecuteNonQuery();
+
+                // Optionally retrieve generated ID (if needed):
+                // venta.venta_id = (int)command.Parameters["p_venta_id"].Value;  
+            }
+        }
+
     }
 }
