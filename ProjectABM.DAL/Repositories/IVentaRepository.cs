@@ -8,8 +8,9 @@ using System.Threading.Tasks;
 
 namespace ProjectABM.DAL.Repositories
 {
-    interface IVentaRepository
+    public interface IVentaRepository
     {
         IEnumerable<Venta> ListVentas(OracleConnection connection);
+        void CreateVenta(OracleConnection connection, Venta venta);
     }
 }

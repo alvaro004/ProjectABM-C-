@@ -33,6 +33,7 @@ namespace ProjectABM
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePickerVenta = new System.Windows.Forms.DateTimePicker();
             this.comboBoxClient = new System.Windows.Forms.ComboBox();
+            this.buttonCreateVenta = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelVentaFecha
@@ -68,11 +69,22 @@ namespace ProjectABM
             this.comboBoxClient.Size = new System.Drawing.Size(121, 21);
             this.comboBoxClient.TabIndex = 3;
             // 
+            // buttonCreateVenta
+            // 
+            this.buttonCreateVenta.Location = new System.Drawing.Point(27, 126);
+            this.buttonCreateVenta.Name = "buttonCreateVenta";
+            this.buttonCreateVenta.Size = new System.Drawing.Size(135, 23);
+            this.buttonCreateVenta.TabIndex = 4;
+            this.buttonCreateVenta.Text = "Create Venta";
+            this.buttonCreateVenta.UseVisualStyleBackColor = true;
+            this.buttonCreateVenta.Click += new System.EventHandler(this.buttonCreateVenta_Click);
+            // 
             // VentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonCreateVenta);
             this.Controls.Add(this.comboBoxClient);
             this.Controls.Add(this.dateTimePickerVenta);
             this.Controls.Add(this.label1);
@@ -90,5 +102,6 @@ namespace ProjectABM
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePickerVenta;
         private System.Windows.Forms.ComboBox comboBoxClient;
+        private System.Windows.Forms.Button buttonCreateVenta;
     }
 }
