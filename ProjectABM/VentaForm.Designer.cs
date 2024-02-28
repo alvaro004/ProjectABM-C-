@@ -38,7 +38,10 @@ namespace ProjectABM
             this.returnToWelcomeButton_Click = new System.Windows.Forms.Button();
             this.DeleteButtonVenta = new System.Windows.Forms.Button();
             this.buttonUpdateVenta = new System.Windows.Forms.Button();
+            this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
+            this.selectColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
             this.SuspendLayout();
             // 
             // labelVentaFecha
@@ -71,12 +74,12 @@ namespace ProjectABM
             this.comboBoxClient.FormattingEnabled = true;
             this.comboBoxClient.Location = new System.Drawing.Point(72, 82);
             this.comboBoxClient.Name = "comboBoxClient";
-            this.comboBoxClient.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxClient.Size = new System.Drawing.Size(200, 21);
             this.comboBoxClient.TabIndex = 3;
             // 
             // buttonCreateVenta
             // 
-            this.buttonCreateVenta.Location = new System.Drawing.Point(27, 126);
+            this.buttonCreateVenta.Location = new System.Drawing.Point(27, 291);
             this.buttonCreateVenta.Name = "buttonCreateVenta";
             this.buttonCreateVenta.Size = new System.Drawing.Size(135, 23);
             this.buttonCreateVenta.TabIndex = 4;
@@ -87,7 +90,7 @@ namespace ProjectABM
             // dataGridViewVenta
             // 
             this.dataGridViewVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVenta.Location = new System.Drawing.Point(307, 51);
+            this.dataGridViewVenta.Location = new System.Drawing.Point(405, 51);
             this.dataGridViewVenta.Name = "dataGridViewVenta";
             this.dataGridViewVenta.Size = new System.Drawing.Size(414, 150);
             this.dataGridViewVenta.TabIndex = 5;
@@ -104,7 +107,7 @@ namespace ProjectABM
             // 
             // DeleteButtonVenta
             // 
-            this.DeleteButtonVenta.Location = new System.Drawing.Point(307, 218);
+            this.DeleteButtonVenta.Location = new System.Drawing.Point(405, 218);
             this.DeleteButtonVenta.Name = "DeleteButtonVenta";
             this.DeleteButtonVenta.Size = new System.Drawing.Size(135, 23);
             this.DeleteButtonVenta.TabIndex = 7;
@@ -114,7 +117,7 @@ namespace ProjectABM
             // 
             // buttonUpdateVenta
             // 
-            this.buttonUpdateVenta.Location = new System.Drawing.Point(463, 218);
+            this.buttonUpdateVenta.Location = new System.Drawing.Point(561, 218);
             this.buttonUpdateVenta.Name = "buttonUpdateVenta";
             this.buttonUpdateVenta.Size = new System.Drawing.Size(135, 23);
             this.buttonUpdateVenta.TabIndex = 8;
@@ -122,11 +125,32 @@ namespace ProjectABM
             this.buttonUpdateVenta.UseVisualStyleBackColor = true;
             this.buttonUpdateVenta.Click += new System.EventHandler(this.buttonUpdateVenta_Click);
             // 
+            // dataGridViewArticulos
+            // 
+            this.dataGridViewArticulos.AllowUserToAddRows = false;
+            this.dataGridViewArticulos.AllowUserToDeleteRows = false;
+            this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.selectColumn});
+            this.dataGridViewArticulos.Location = new System.Drawing.Point(27, 119);
+            this.dataGridViewArticulos.Name = "dataGridViewArticulos";
+            this.dataGridViewArticulos.ReadOnly = true;
+            this.dataGridViewArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewArticulos.Size = new System.Drawing.Size(349, 150);
+            this.dataGridViewArticulos.TabIndex = 10;
+            // 
+            // selectColumn
+            // 
+            this.selectColumn.HeaderText = "Select";
+            this.selectColumn.Name = "selectColumn";
+            this.selectColumn.ReadOnly = true;
+            // 
             // VentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(859, 450);
+            this.Controls.Add(this.dataGridViewArticulos);
             this.Controls.Add(this.buttonUpdateVenta);
             this.Controls.Add(this.DeleteButtonVenta);
             this.Controls.Add(this.returnToWelcomeButton_Click);
@@ -139,6 +163,7 @@ namespace ProjectABM
             this.Name = "VentaForm";
             this.Text = "VentaForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +180,7 @@ namespace ProjectABM
         private System.Windows.Forms.Button returnToWelcomeButton_Click;
         private System.Windows.Forms.Button DeleteButtonVenta;
         private System.Windows.Forms.Button buttonUpdateVenta;
+        private System.Windows.Forms.DataGridView dataGridViewArticulos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn selectColumn;
     }
 }

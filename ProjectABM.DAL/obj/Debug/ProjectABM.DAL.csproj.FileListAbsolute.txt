@@ -1,4 +1,3 @@
-C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\obj\Debug\ProjectABM.DAL.csproj.AssemblyReference.cache
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\obj\Debug\ProjectABM.DAL.csproj.CoreCompileInputs.cache
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\bin\Debug\ProjectABM.DAL.dll.config
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\bin\Debug\ProjectABM.DAL.dll
@@ -27,3 +26,4 @@ C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\bin\Debug\Syste
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\obj\Debug\ProjectABM.DAL.csproj.CopyComplete
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\obj\Debug\ProjectABM.DAL.dll
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\obj\Debug\ProjectABM.DAL.pdb
+C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\obj\Debug\ProjectABM.DAL.csproj.AssemblyReference.cache

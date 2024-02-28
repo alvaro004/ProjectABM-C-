@@ -43,15 +43,38 @@ namespace ProjectABM.DAL.Repositories
         }
 
         //CREATE A VENTA
-        public void CreateVenta(OracleConnection connection, Venta venta)
+        public void CreateVenta(OracleConnection connection, Venta venta, IEnumerable<int> selectedArticuloIds)
         {
+            
             using (OracleCommand command = new OracleCommand("pkg_abm_assigment.sp_create_venta", connection))
             {
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.Add("p_venta_id", OracleDbType.Int32, ParameterDirection.Output); // Assuming ID is auto-generated
+                Console.WriteLine("---------------------------------------------------------------Selected Article IDs: " + string.Join(",", selectedArticuloIds));
+
+                command.Parameters.Add("p_venta_id", OracleDbType.Int32, ParameterDirection.Output); // ID is auto-generated
                 command.Parameters.Add("p_venta_fecha", OracleDbType.Date).Value = venta.venta_fecha;
                 command.Parameters.Add("p_cliente_cliente_id", OracleDbType.Int32).Value = venta.cliente_cliente_id;
+
+                // Table-Valued Parameter
+                /* DataTable articuloIdsTable = new DataTable();
+                articuloIdsTable.Columns.Add("articulo_articulo_id", typeof(int));
+                foreach (var articuloId in selectedArticuloIds)
+                {
+                    articuloIdsTable.Rows.Add(articuloId);
+                }
+
+                var param = new OracleParameter("p_articulo_ids", OracleDbType.Object);
+                param.UdtTypeName = "ADN.ARTICULO_IDS_TABLE";
+                param.Value = articuloIdsTable;
+                command.Parameters.Add(param);*/
+
+                // Add articles using an array parameter 
+                //command.Parameters.Add("p_articulo_ids", OracleDbType.Array).UdtTypeName = "ADN.ARTICULOS_VARRAY";
+                //command.Parameters["p_articulo_ids"].Value = selectedArticuloIds.ToArray();
+
+                //Strig approach
+                command.Parameters.Add("p_articulo_ids", OracleDbType.Varchar2).Value = string.Join(",", selectedArticuloIds);
 
                 command.ExecuteNonQuery();
 

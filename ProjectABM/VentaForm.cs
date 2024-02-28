@@ -30,8 +30,7 @@ namespace ProjectABM
 
             _ventaRepository = new VentaRepository();
 
-            //call event handler to prevent edit IDs in the Data Grid 
-            dataGridViewVenta.CellEnter += dataGridViewVenta_CellEnter;
+            dataGridViewVenta.CellEnter += dataGridViewVenta_CellEnter;  //call event handler to prevent edit IDs in the Data Grid 
 
             using (OracleConnection connection = new OracleConnection(connectionString))
             {
@@ -46,7 +45,6 @@ namespace ProjectABM
                     MessageBox.Show("Error fetching sales data: " + ex.Message);
                 }
             }
-
 
         }
 
@@ -63,12 +61,17 @@ namespace ProjectABM
             var selectedClient = (Cliente)comboBoxClient.SelectedItem;
             venta.cliente_cliente_id = selectedClient.cliente_id;
 
+            // Get selected article IDs
+            var selectedArticuloIds = dataGridViewArticulos.SelectedRows.Cast<DataGridViewRow>()
+                                                           .Select(row => Convert.ToInt32(row.Cells["articulo_id"].Value))
+                                                           .ToList();
+
             using (OracleConnection connection = new OracleConnection(connectionString))
             {
                 try
                 {
                     connection.Open();
-                    _ventaRepository.CreateVenta(connection, venta);
+                    _ventaRepository.CreateVenta(connection, venta, selectedArticuloIds);
                     MessageBox.Show("Venta created successfully!");
 
                     //Refresh the data Grid
@@ -139,11 +142,10 @@ namespace ProjectABM
             }
         }
 
-
         //////////////////////////////////////////////////////////////////////////////////////
         ///COMPLEMENT METHODS
 
-        //We are going to focus on retrieve all the clients and its IDs
+        //We are going to focus on retrieve all the clients, articulso and its IDs
         private void VentaForm_Load(object sender, EventArgs e)
         {
             using (OracleConnection connection = new OracleConnection(connectionString))
@@ -154,6 +156,11 @@ namespace ProjectABM
 
                 // Pass clients to the next step (populate the combobox)
                 PopulateClientComboBox(clients);
+                var articuloRepository = new ArticuloRepository();
+                var articles = articuloRepository.ListArticulos(connection);
+
+                // Bind to DataGridView
+                dataGridViewArticulos.DataSource = articles.ToList();
             }
         }
 
@@ -223,9 +230,7 @@ namespace ProjectABM
                 dataGridViewVenta.CurrentCell.ReadOnly = false;
             }
         }
-
         //////////////////////////////////////////////////////////////////////////////////////
-
     }
 
 }
