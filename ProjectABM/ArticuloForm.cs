@@ -97,7 +97,7 @@ namespace ProjectABM
             ShowWelcomeForm();
         }
 
-        // Method to refresh the DataGridView after delete. 
+        // Method to refresh the DataGridView. 
         private void RefreshClientesDataGridView(OracleConnection connection)
         {
             var articulos = _articuloRepository.ListArticulos(connection);

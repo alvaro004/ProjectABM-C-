@@ -48,7 +48,6 @@ namespace ProjectABM
         }
 
         //We are going to focus on retrieve all the clients and its IDs
-        // In your VentaForm
         private void VentaForm_Load(object sender, EventArgs e)
         {
             using (OracleConnection connection = new OracleConnection(connectionString))
@@ -62,7 +61,7 @@ namespace ProjectABM
             }
         }
 
-        //helper method to populate the combobox
+        //Helper method to populate the combobox
         private void PopulateClientComboBox(IEnumerable<Cliente> clients)
         {
             comboBoxClient.DisplayMember = "cliente_nom";
@@ -70,10 +69,11 @@ namespace ProjectABM
             comboBoxClient.DataSource = clients.ToList();
         }
 
+        //CREATE A NEW VENTA
         private void buttonCreateVenta_Click(object sender, EventArgs e)
         {
             var venta = new Venta();
-            venta.venta_fecha = dateTimePickerVenta.Value;
+            venta.venta_fecha = dateTimePickerVenta.Value.Date;
 
             // Retrieve selected client
             var selectedClient = (Cliente)comboBoxClient.SelectedItem;
@@ -86,7 +86,9 @@ namespace ProjectABM
                     connection.Open();
                     _ventaRepository.CreateVenta(connection, venta);
                     MessageBox.Show("Venta created successfully!");
-                    // Optionally, clear the form or refresh data
+
+                    //Refresh the data Grid
+                    RefreshClientesDataGridView(connection);
                 }
                 catch (OracleException ex)
                 {
@@ -114,6 +116,13 @@ namespace ProjectABM
                 welcomeForm = new WelcomeForm();
                 welcomeForm.Show();
             }
+        }
+
+        // Method to refresh the DataGridView. 
+        private void RefreshClientesDataGridView(OracleConnection connection)
+        {
+            var articulos = _ventaRepository.ListVentas(connection);
+            dataGridViewVenta.DataSource = articulos.ToList();
         }
     }
 
