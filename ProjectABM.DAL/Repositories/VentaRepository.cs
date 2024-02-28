@@ -43,7 +43,6 @@ namespace ProjectABM.DAL.Repositories
         }
 
         //CREATE A VENTA
-        //THIS IMPLEMENTATION IS NOT GOING TO WORK!!!!!!!!!!! 27/02/24
         public void CreateVenta(OracleConnection connection, Venta venta)
         {
             using (OracleCommand command = new OracleCommand("pkg_abm_assigment.sp_create_venta", connection))
@@ -60,6 +59,19 @@ namespace ProjectABM.DAL.Repositories
                 // venta.venta_id = (int)command.Parameters["p_venta_id"].Value;  
             }
         }
+
+        //DELETE A VENTA
+        public void DeleteVenta(OracleConnection connection, int ventaId)
+        {
+            using (var command = new OracleCommand("pkg_abm_assigment.sp_delete_venta", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("p_venta_id", OracleDbType.Int32).Value = ventaId;
+
+                command.ExecuteNonQuery(); // Executes the delete stored procedure.
+            }
+        }
+
 
     }
 }

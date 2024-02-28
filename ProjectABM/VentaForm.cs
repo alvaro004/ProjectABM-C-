@@ -16,17 +16,17 @@ namespace ProjectABM
 {
     public partial class VentaForm : Form
     {
-        //creating the DB connection
-        //the config for the DB conecction is in the APP.config file in this folder
+        //creating the DB connection. The config for the DB conecction is in the APP.config file in this folder
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["MyDatabaseConnection"].ConnectionString;
 
         private readonly IVentaRepository _ventaRepository; //bring all the methonds from the interface
 
+        //Initialize components
         public VentaForm()
         {
             InitializeComponent();
 
-            this.Load += new EventHandler(VentaForm_Load);
+            this.Load += new EventHandler(VentaForm_Load); //show the Venta List when the view is loaded
 
             _ventaRepository = new VentaRepository(); 
 
@@ -46,6 +46,71 @@ namespace ProjectABM
 
 
         }
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        //CRUD OPERATIONS
+
+        //CREATE A NEW VENTA
+        private void buttonCreateVenta_Click(object sender, EventArgs e)
+        {
+            var venta = new Venta();
+            venta.venta_fecha = dateTimePickerVenta.Value.Date;
+
+            // Retrieve selected client
+            var selectedClient = (Cliente)comboBoxClient.SelectedItem;
+            venta.cliente_cliente_id = selectedClient.cliente_id;
+
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    _ventaRepository.CreateVenta(connection, venta);
+                    MessageBox.Show("Venta created successfully!");
+
+                    //Refresh the data Grid
+                    RefreshVentaDataGridView(connection);
+                }
+                catch (OracleException ex)
+                {
+                    MessageBox.Show("Error creating venta: " + ex.Message);
+                }
+            }
+        }
+
+        //DELETE A VENTA
+        private void DeleteButtonVenta_Click(object sender, EventArgs e)
+        {
+            // Get the selected row.
+            if (dataGridViewVenta.SelectedRows.Count > 0)
+            {
+                int selectedVentaId = Convert.ToInt32(dataGridViewVenta.SelectedRows[0].Cells["venta_id"].Value);
+
+                using (OracleConnection connection = new OracleConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        _ventaRepository.DeleteVenta(connection, selectedVentaId);
+                        MessageBox.Show("Client Deleted!");
+                        // Refresh the DataGridView
+                        RefreshVentaDataGridView(connection);
+                    }
+                    catch (OracleException ex)
+                    {
+                        MessageBox.Show("Error: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row or a venta to delete.");
+            }
+        }
+
+
+        //////////////////////////////////////////////////////////////////////////////////////
+        ///COMPLEMENT METHODS
 
         //We are going to focus on retrieve all the clients and its IDs
         private void VentaForm_Load(object sender, EventArgs e)
@@ -69,41 +134,14 @@ namespace ProjectABM
             comboBoxClient.DataSource = clients.ToList();
         }
 
-        //CREATE A NEW VENTA
-        private void buttonCreateVenta_Click(object sender, EventArgs e)
-        {
-            var venta = new Venta();
-            venta.venta_fecha = dateTimePickerVenta.Value.Date;
-
-            // Retrieve selected client
-            var selectedClient = (Cliente)comboBoxClient.SelectedItem;
-            venta.cliente_cliente_id = selectedClient.cliente_id;
-
-            using (OracleConnection connection = new OracleConnection(connectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    _ventaRepository.CreateVenta(connection, venta);
-                    MessageBox.Show("Venta created successfully!");
-
-                    //Refresh the data Grid
-                    RefreshClientesDataGridView(connection);
-                }
-                catch (OracleException ex)
-                {
-                    MessageBox.Show("Error creating venta: " + ex.Message);
-                }
-            }
-        }
-
+        //Go back to Welcome Form
         private void returnToWelcomeButton_Click_Click(object sender, EventArgs e)
         {
             this.Hide();
             ShowWelcomeForm();
         }
 
-        // METHOD TO SHOW AND HIDE WELCOME FORM 
+        // Logic for the showWelcomeForm method
         private void ShowWelcomeForm()
         {
             var welcomeForm = Application.OpenForms.OfType<WelcomeForm>().FirstOrDefault();
@@ -119,11 +157,15 @@ namespace ProjectABM
         }
 
         // Method to refresh the DataGridView. 
-        private void RefreshClientesDataGridView(OracleConnection connection)
+        private void RefreshVentaDataGridView(OracleConnection connection)
         {
             var articulos = _ventaRepository.ListVentas(connection);
             dataGridViewVenta.DataSource = articulos.ToList();
         }
+
+
+        //////////////////////////////////////////////////////////////////////////////////////
+
     }
 
 }

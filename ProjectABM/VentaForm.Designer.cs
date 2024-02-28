@@ -36,6 +36,7 @@ namespace ProjectABM
             this.buttonCreateVenta = new System.Windows.Forms.Button();
             this.dataGridViewVenta = new System.Windows.Forms.DataGridView();
             this.returnToWelcomeButton_Click = new System.Windows.Forms.Button();
+            this.DeleteButtonVenta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -100,11 +101,22 @@ namespace ProjectABM
             this.returnToWelcomeButton_Click.UseVisualStyleBackColor = true;
             this.returnToWelcomeButton_Click.Click += new System.EventHandler(this.returnToWelcomeButton_Click_Click);
             // 
+            // DeleteButtonVenta
+            // 
+            this.DeleteButtonVenta.Location = new System.Drawing.Point(307, 218);
+            this.DeleteButtonVenta.Name = "DeleteButtonVenta";
+            this.DeleteButtonVenta.Size = new System.Drawing.Size(135, 23);
+            this.DeleteButtonVenta.TabIndex = 7;
+            this.DeleteButtonVenta.Text = "Delete Venta";
+            this.DeleteButtonVenta.UseVisualStyleBackColor = true;
+            this.DeleteButtonVenta.Click += new System.EventHandler(this.DeleteButtonVenta_Click);
+            // 
             // VentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.DeleteButtonVenta);
             this.Controls.Add(this.returnToWelcomeButton_Click);
             this.Controls.Add(this.dataGridViewVenta);
             this.Controls.Add(this.buttonCreateVenta);
@@ -129,5 +141,6 @@ namespace ProjectABM
         private System.Windows.Forms.Button buttonCreateVenta;
         private System.Windows.Forms.DataGridView dataGridViewVenta;
         private System.Windows.Forms.Button returnToWelcomeButton_Click;
+        private System.Windows.Forms.Button DeleteButtonVenta;
     }
 }
