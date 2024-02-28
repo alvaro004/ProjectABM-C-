@@ -13,5 +13,6 @@ namespace ProjectABM.DAL.Repositories
         IEnumerable<Venta> ListVentas(OracleConnection connection);
         void CreateVenta(OracleConnection connection, Venta venta);
         void DeleteVenta(OracleConnection connection, int ventaId);
+        void UpdateVenta(OracleConnection connection, Venta venta);
     }
 }

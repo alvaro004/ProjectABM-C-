@@ -72,6 +72,22 @@ namespace ProjectABM.DAL.Repositories
             }
         }
 
+        //UPDATE VENTA
+        public void UpdateVenta(OracleConnection connection, Venta venta)
+        {
+            using (var command = new OracleCommand("pkg_abm_assigment.sp_update_venta", connection))
+            {
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("p_venta_id", OracleDbType.Int32).Value = venta.venta_id;
+                command.Parameters.Add("p_venta_fecha", OracleDbType.Date).Value = venta.venta_fecha;
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+
+
 
     }
 }

@@ -149,8 +149,8 @@ namespace ProjectABM
                         connection.Open();
                         _articuloRepository.UpdateArticulo(connection, articuloToUpdate);
                         MessageBox.Show("Article updated!");
-                        // Refresh the DataGridView
-                        CallMethodutilRefreshDataGrid(connection);
+                        
+                        CallMethodutilRefreshDataGrid(connection); // Refresh the DataGridView
                     }
                     catch (OracleException ex)
                     {

@@ -28,7 +28,10 @@ namespace ProjectABM
 
             this.Load += new EventHandler(VentaForm_Load); //show the Venta List when the view is loaded
 
-            _ventaRepository = new VentaRepository(); 
+            _ventaRepository = new VentaRepository();
+
+            //call event handler to prevent edit IDs in the Data Grid 
+            dataGridViewVenta.CellEnter += dataGridViewVenta_CellEnter;
 
             using (OracleConnection connection = new OracleConnection(connectionString))
             {
@@ -92,7 +95,7 @@ namespace ProjectABM
                     {
                         connection.Open();
                         _ventaRepository.DeleteVenta(connection, selectedVentaId);
-                        MessageBox.Show("Client Deleted!");
+                        MessageBox.Show("Client Deleted successfully!");
                         // Refresh the DataGridView
                         RefreshVentaDataGridView(connection);
                     }
@@ -105,6 +108,34 @@ namespace ProjectABM
             else
             {
                 MessageBox.Show("Please select a row or a venta to delete.");
+            }
+        }
+
+        //UPDATE VENTA
+        private void buttonUpdateVenta_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewVenta.SelectedRows.Count > 0)
+            {
+                Venta ventaToUpdate = GetVentaFromForm();
+
+                using (OracleConnection connection = new OracleConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+                        _ventaRepository.UpdateVenta(connection, ventaToUpdate);
+                        RefreshVentaDataGridView(connection); // Refresh
+                        MessageBox.Show("Venta updated!");
+                    }
+                    catch (OracleException ex)
+                    {
+                        MessageBox.Show("Error updating venta: " + ex.Message);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row or a venta to update.");
             }
         }
 
@@ -163,6 +194,35 @@ namespace ProjectABM
             dataGridViewVenta.DataSource = articulos.ToList();
         }
 
+        private Venta GetVentaFromForm()
+        {
+            Venta venta = new Venta();
+            venta.venta_id = Convert.ToInt32(dataGridViewVenta.SelectedRows[0].Cells["venta_id"].Value);
+            venta.venta_fecha = Convert.ToDateTime(dataGridViewVenta.SelectedRows[0].Cells["venta_fecha"].Value);
+
+            // Retrieve the client Id
+            var selectedClient = (Cliente)comboBoxClient.SelectedItem;
+            venta.cliente_cliente_id = selectedClient.cliente_id;
+
+            return venta;
+        }
+
+        private void dataGridViewVenta_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            // Column names for convenience
+            string ventaIDColumn = "venta_id";
+            string clientIDColumn = "cliente_cliente_id";
+
+            if (e.ColumnIndex == dataGridViewVenta.Columns[ventaIDColumn].Index ||
+                e.ColumnIndex == dataGridViewVenta.Columns[clientIDColumn].Index)
+            {
+                dataGridViewVenta.CurrentCell.ReadOnly = true;
+            }
+            else
+            {
+                dataGridViewVenta.CurrentCell.ReadOnly = false;
+            }
+        }
 
         //////////////////////////////////////////////////////////////////////////////////////
 

@@ -37,6 +37,7 @@ namespace ProjectABM
             this.dataGridViewVenta = new System.Windows.Forms.DataGridView();
             this.returnToWelcomeButton_Click = new System.Windows.Forms.Button();
             this.DeleteButtonVenta = new System.Windows.Forms.Button();
+            this.buttonUpdateVenta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,11 +112,22 @@ namespace ProjectABM
             this.DeleteButtonVenta.UseVisualStyleBackColor = true;
             this.DeleteButtonVenta.Click += new System.EventHandler(this.DeleteButtonVenta_Click);
             // 
+            // buttonUpdateVenta
+            // 
+            this.buttonUpdateVenta.Location = new System.Drawing.Point(463, 218);
+            this.buttonUpdateVenta.Name = "buttonUpdateVenta";
+            this.buttonUpdateVenta.Size = new System.Drawing.Size(135, 23);
+            this.buttonUpdateVenta.TabIndex = 8;
+            this.buttonUpdateVenta.Text = "Update Venta";
+            this.buttonUpdateVenta.UseVisualStyleBackColor = true;
+            this.buttonUpdateVenta.Click += new System.EventHandler(this.buttonUpdateVenta_Click);
+            // 
             // VentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonUpdateVenta);
             this.Controls.Add(this.DeleteButtonVenta);
             this.Controls.Add(this.returnToWelcomeButton_Click);
             this.Controls.Add(this.dataGridViewVenta);
@@ -142,5 +154,6 @@ namespace ProjectABM
         private System.Windows.Forms.DataGridView dataGridViewVenta;
         private System.Windows.Forms.Button returnToWelcomeButton_Click;
         private System.Windows.Forms.Button DeleteButtonVenta;
+        private System.Windows.Forms.Button buttonUpdateVenta;
     }
 }
