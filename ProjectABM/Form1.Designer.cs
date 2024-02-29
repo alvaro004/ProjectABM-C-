@@ -149,6 +149,7 @@ namespace ProjectABM
             this.Controls.Add(this.buttonDeleteClient);
             this.Controls.Add(this.dataGridViewClientes);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewClientes)).EndInit();

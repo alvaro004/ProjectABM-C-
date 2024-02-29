@@ -84,6 +84,7 @@ namespace ProjectABM
             this.Controls.Add(this.manageClientsButton_Click);
             this.Controls.Add(this.labelWelcome);
             this.Name = "WelcomeForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WelcomeForm";
             this.ResumeLayout(false);
             this.PerformLayout();

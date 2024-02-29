@@ -40,6 +40,9 @@ namespace ProjectABM
             this.buttonUpdateVenta = new System.Windows.Forms.Button();
             this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
             this.buttonGeneratePDF = new System.Windows.Forms.Button();
+            this.datePickerFilter = new System.Windows.Forms.DateTimePicker();
+            this.ButtonSortByDay = new System.Windows.Forms.Button();
+            this.buttonFetchAllVentasList = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
             this.SuspendLayout();
@@ -147,11 +150,41 @@ namespace ProjectABM
             this.buttonGeneratePDF.UseVisualStyleBackColor = true;
             this.buttonGeneratePDF.Click += new System.EventHandler(this.buttonGeneratePDF_Click);
             // 
+            // datePickerFilter
+            // 
+            this.datePickerFilter.Location = new System.Drawing.Point(405, 25);
+            this.datePickerFilter.Name = "datePickerFilter";
+            this.datePickerFilter.Size = new System.Drawing.Size(200, 20);
+            this.datePickerFilter.TabIndex = 12;
+            // 
+            // ButtonSortByDay
+            // 
+            this.ButtonSortByDay.Location = new System.Drawing.Point(620, 25);
+            this.ButtonSortByDay.Name = "ButtonSortByDay";
+            this.ButtonSortByDay.Size = new System.Drawing.Size(75, 20);
+            this.ButtonSortByDay.TabIndex = 13;
+            this.ButtonSortByDay.Text = "Sort";
+            this.ButtonSortByDay.UseVisualStyleBackColor = true;
+            this.ButtonSortByDay.Click += new System.EventHandler(this.ButtonSortByDay_Click);
+            // 
+            // buttonFetchAllVentasList
+            // 
+            this.buttonFetchAllVentasList.Location = new System.Drawing.Point(704, 25);
+            this.buttonFetchAllVentasList.Name = "buttonFetchAllVentasList";
+            this.buttonFetchAllVentasList.Size = new System.Drawing.Size(75, 20);
+            this.buttonFetchAllVentasList.TabIndex = 14;
+            this.buttonFetchAllVentasList.Text = "All Ventas";
+            this.buttonFetchAllVentasList.UseVisualStyleBackColor = true;
+            this.buttonFetchAllVentasList.Click += new System.EventHandler(this.buttonFetchAllVentasList_Click);
+            // 
             // VentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 450);
+            this.Controls.Add(this.buttonFetchAllVentasList);
+            this.Controls.Add(this.ButtonSortByDay);
+            this.Controls.Add(this.datePickerFilter);
             this.Controls.Add(this.buttonGeneratePDF);
             this.Controls.Add(this.dataGridViewArticulos);
             this.Controls.Add(this.buttonUpdateVenta);
@@ -164,6 +197,7 @@ namespace ProjectABM
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelVentaFecha);
             this.Name = "VentaForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentaForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).EndInit();
@@ -185,5 +219,8 @@ namespace ProjectABM
         private System.Windows.Forms.Button buttonUpdateVenta;
         private System.Windows.Forms.DataGridView dataGridViewArticulos;
         private System.Windows.Forms.Button buttonGeneratePDF;
+        private System.Windows.Forms.DateTimePicker datePickerFilter;
+        private System.Windows.Forms.Button ButtonSortByDay;
+        private System.Windows.Forms.Button buttonFetchAllVentasList;
     }
 }

@@ -29,8 +29,8 @@ namespace ProjectABM
         {
             InitializeComponent();
 
-            dataGridViewVenta.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewVenta.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //AutoSizeColumns
+            dataGridViewArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //AutoSizeColumns
 
             this.Load += new EventHandler(VentaForm_Load); //show the Venta List when the view is loaded
 
@@ -150,7 +150,7 @@ namespace ProjectABM
         //////////////////////////////////////////////////////////////////////////////////////
         ///COMPLEMENT METHODS
 
-        //We are going to focus on retrieve all the clients, articulso and its IDs
+        //Retrieve all the clients, articulso and their IDs
         private void VentaForm_Load(object sender, EventArgs e)
         {
             using (OracleConnection connection = new OracleConnection(connectionString))
@@ -324,6 +324,50 @@ namespace ProjectABM
 
             return table;
         }
+
+        // Fetch Sales (in VentaForm_Load or similar)
+        private void FetchSales(DateTime? filterDate = null)
+        {
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    var ventas = _ventaRepository.ListVentas(connection, filterDate);
+                    dataGridViewVenta.DataSource = ventas.ToList();
+                }
+                catch (OracleException ex)
+                {
+                    MessageBox.Show("Error fetching sales data: " + ex.Message);
+                }
+            }
+        }
+
+        // Event Handler for Date Filter 
+        private void ButtonSortByDay_Click(object sender, EventArgs e)
+        {
+            DateTime selectedDate = datePickerFilter.Value;
+            FetchSales(selectedDate); // Fetch filtered data
+        }
+
+        private void buttonFetchAllVentasList_Click(object sender, EventArgs e)
+        {
+            using (OracleConnection connection = new OracleConnection(connectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    //Refresh the data Grid
+                    RefreshVentaDataGridView(connection);
+                }
+                catch (OracleException ex)
+                {
+                    MessageBox.Show("Connection error: " + ex.Message);
+                }
+            }
+        }
+
+
 
         //////////////////////////////////////////////////////////////////////////////////////
     }

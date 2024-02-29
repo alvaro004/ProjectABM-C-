@@ -133,6 +133,7 @@ namespace ProjectABM
             this.Controls.Add(this.labelDataText);
             this.Controls.Add(this.labelArticuleTitle);
             this.Name = "ArticuloForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ArticuloForm";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ArticuloForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).EndInit();
