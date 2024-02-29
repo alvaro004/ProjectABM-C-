@@ -149,7 +149,6 @@ namespace ProjectABM
 
         //////////////////////////////////////////////////////////////////////////////////////
         ///COMPLEMENT METHODS
-
         //Retrieve all the clients, articulso and their IDs
         private void VentaForm_Load(object sender, EventArgs e)
         {
@@ -206,6 +205,13 @@ namespace ProjectABM
             dataGridViewVenta.DataSource = articulos.ToList();
         }
 
+        //Show the welcome form when the Venta Form is closed
+        private void VentaForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ShowWelcomeForm();
+        }
+
+        //Generate a new venta object from  the Venta Form, this time having the client data
         private Venta GetVentaFromForm()
         {
             Venta venta = new Venta();
@@ -273,7 +279,7 @@ namespace ProjectABM
             System.Diagnostics.Process.Start(pdfFilePath);
         }
 
-        // Helper Functions
+        // Helper method
         private List<List<string>> ExtractDataFromDataGridView(DataGridView dataGridView)
         {
             var data = new List<List<string>>();
@@ -302,7 +308,7 @@ namespace ProjectABM
 
         private PdfPTable CreatePdfTable(List<List<string>> data)
         {
-            // Column Count (based on your data)
+            // Column Count (based on the data)
             PdfPTable table = new PdfPTable(dataGridViewVenta.Columns.Count);
 
             // Headers
@@ -346,7 +352,7 @@ namespace ProjectABM
         // Event Handler for Date Filter 
         private void ButtonSortByDay_Click(object sender, EventArgs e)
         {
-            DateTime selectedDate = datePickerFilter.Value;
+            DateTime selectedDate = datePickerFilterByDay.Value;
             FetchSales(selectedDate); // Fetch filtered data
         }
 
@@ -357,8 +363,7 @@ namespace ProjectABM
                 try
                 {
                     connection.Open();
-                    //Refresh the data Grid
-                    RefreshVentaDataGridView(connection);
+                    RefreshVentaDataGridView(connection); //Refresh the data Grid
                 }
                 catch (OracleException ex)
                 {
@@ -366,9 +371,6 @@ namespace ProjectABM
                 }
             }
         }
-
-
-
         //////////////////////////////////////////////////////////////////////////////////////
     }
 

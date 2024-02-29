@@ -40,9 +40,10 @@ namespace ProjectABM
             this.buttonUpdateVenta = new System.Windows.Forms.Button();
             this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
             this.buttonGeneratePDF = new System.Windows.Forms.Button();
-            this.datePickerFilter = new System.Windows.Forms.DateTimePicker();
+            this.datePickerFilterByDay = new System.Windows.Forms.DateTimePicker();
             this.ButtonSortByDay = new System.Windows.Forms.Button();
             this.buttonFetchAllVentasList = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
             this.SuspendLayout();
@@ -50,39 +51,41 @@ namespace ProjectABM
             // labelVentaFecha
             // 
             this.labelVentaFecha.AutoSize = true;
-            this.labelVentaFecha.Location = new System.Drawing.Point(24, 51);
+            this.labelVentaFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelVentaFecha.Location = new System.Drawing.Point(26, 58);
             this.labelVentaFecha.Name = "labelVentaFecha";
-            this.labelVentaFecha.Size = new System.Drawing.Size(30, 13);
+            this.labelVentaFecha.Size = new System.Drawing.Size(47, 17);
             this.labelVentaFecha.TabIndex = 0;
-            this.labelVentaFecha.Text = "Date";
+            this.labelVentaFecha.Text = "Date:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 85);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(26, 92);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.Size = new System.Drawing.Size(54, 17);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Client";
+            this.label1.Text = "Client:";
             // 
             // dateTimePickerVenta
             // 
-            this.dateTimePickerVenta.Location = new System.Drawing.Point(72, 51);
+            this.dateTimePickerVenta.Location = new System.Drawing.Point(93, 58);
             this.dateTimePickerVenta.Name = "dateTimePickerVenta";
-            this.dateTimePickerVenta.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerVenta.Size = new System.Drawing.Size(217, 20);
             this.dateTimePickerVenta.TabIndex = 2;
             // 
             // comboBoxClient
             // 
             this.comboBoxClient.FormattingEnabled = true;
-            this.comboBoxClient.Location = new System.Drawing.Point(72, 82);
+            this.comboBoxClient.Location = new System.Drawing.Point(93, 91);
             this.comboBoxClient.Name = "comboBoxClient";
-            this.comboBoxClient.Size = new System.Drawing.Size(200, 21);
+            this.comboBoxClient.Size = new System.Drawing.Size(217, 21);
             this.comboBoxClient.TabIndex = 3;
             // 
             // buttonCreateVenta
             // 
-            this.buttonCreateVenta.Location = new System.Drawing.Point(27, 291);
+            this.buttonCreateVenta.Location = new System.Drawing.Point(29, 328);
             this.buttonCreateVenta.Name = "buttonCreateVenta";
             this.buttonCreateVenta.Size = new System.Drawing.Size(135, 23);
             this.buttonCreateVenta.TabIndex = 4;
@@ -93,16 +96,16 @@ namespace ProjectABM
             // dataGridViewVenta
             // 
             this.dataGridViewVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVenta.Location = new System.Drawing.Point(405, 51);
+            this.dataGridViewVenta.Location = new System.Drawing.Point(411, 91);
             this.dataGridViewVenta.Name = "dataGridViewVenta";
-            this.dataGridViewVenta.Size = new System.Drawing.Size(414, 150);
+            this.dataGridViewVenta.Size = new System.Drawing.Size(414, 218);
             this.dataGridViewVenta.TabIndex = 5;
             // 
             // returnToWelcomeButton_Click
             // 
-            this.returnToWelcomeButton_Click.Location = new System.Drawing.Point(27, 390);
+            this.returnToWelcomeButton_Click.Location = new System.Drawing.Point(29, 397);
             this.returnToWelcomeButton_Click.Name = "returnToWelcomeButton_Click";
-            this.returnToWelcomeButton_Click.Size = new System.Drawing.Size(124, 32);
+            this.returnToWelcomeButton_Click.Size = new System.Drawing.Size(76, 32);
             this.returnToWelcomeButton_Click.TabIndex = 6;
             this.returnToWelcomeButton_Click.Text = "Go Back";
             this.returnToWelcomeButton_Click.UseVisualStyleBackColor = true;
@@ -110,7 +113,7 @@ namespace ProjectABM
             // 
             // DeleteButtonVenta
             // 
-            this.DeleteButtonVenta.Location = new System.Drawing.Point(405, 218);
+            this.DeleteButtonVenta.Location = new System.Drawing.Point(411, 328);
             this.DeleteButtonVenta.Name = "DeleteButtonVenta";
             this.DeleteButtonVenta.Size = new System.Drawing.Size(115, 23);
             this.DeleteButtonVenta.TabIndex = 7;
@@ -120,7 +123,7 @@ namespace ProjectABM
             // 
             // buttonUpdateVenta
             // 
-            this.buttonUpdateVenta.Location = new System.Drawing.Point(552, 218);
+            this.buttonUpdateVenta.Location = new System.Drawing.Point(558, 328);
             this.buttonUpdateVenta.Name = "buttonUpdateVenta";
             this.buttonUpdateVenta.Size = new System.Drawing.Size(115, 23);
             this.buttonUpdateVenta.TabIndex = 8;
@@ -133,16 +136,16 @@ namespace ProjectABM
             this.dataGridViewArticulos.AllowUserToAddRows = false;
             this.dataGridViewArticulos.AllowUserToDeleteRows = false;
             this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewArticulos.Location = new System.Drawing.Point(27, 119);
+            this.dataGridViewArticulos.Location = new System.Drawing.Point(29, 126);
             this.dataGridViewArticulos.Name = "dataGridViewArticulos";
             this.dataGridViewArticulos.ReadOnly = true;
             this.dataGridViewArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewArticulos.Size = new System.Drawing.Size(349, 150);
+            this.dataGridViewArticulos.Size = new System.Drawing.Size(349, 183);
             this.dataGridViewArticulos.TabIndex = 10;
             // 
             // buttonGeneratePDF
             // 
-            this.buttonGeneratePDF.Location = new System.Drawing.Point(704, 218);
+            this.buttonGeneratePDF.Location = new System.Drawing.Point(710, 328);
             this.buttonGeneratePDF.Name = "buttonGeneratePDF";
             this.buttonGeneratePDF.Size = new System.Drawing.Size(115, 23);
             this.buttonGeneratePDF.TabIndex = 11;
@@ -150,16 +153,16 @@ namespace ProjectABM
             this.buttonGeneratePDF.UseVisualStyleBackColor = true;
             this.buttonGeneratePDF.Click += new System.EventHandler(this.buttonGeneratePDF_Click);
             // 
-            // datePickerFilter
+            // datePickerFilterByDay
             // 
-            this.datePickerFilter.Location = new System.Drawing.Point(405, 25);
-            this.datePickerFilter.Name = "datePickerFilter";
-            this.datePickerFilter.Size = new System.Drawing.Size(200, 20);
-            this.datePickerFilter.TabIndex = 12;
+            this.datePickerFilterByDay.Location = new System.Drawing.Point(411, 60);
+            this.datePickerFilterByDay.Name = "datePickerFilterByDay";
+            this.datePickerFilterByDay.Size = new System.Drawing.Size(225, 20);
+            this.datePickerFilterByDay.TabIndex = 12;
             // 
             // ButtonSortByDay
             // 
-            this.ButtonSortByDay.Location = new System.Drawing.Point(620, 25);
+            this.ButtonSortByDay.Location = new System.Drawing.Point(657, 60);
             this.ButtonSortByDay.Name = "ButtonSortByDay";
             this.ButtonSortByDay.Size = new System.Drawing.Size(75, 20);
             this.ButtonSortByDay.TabIndex = 13;
@@ -169,7 +172,7 @@ namespace ProjectABM
             // 
             // buttonFetchAllVentasList
             // 
-            this.buttonFetchAllVentasList.Location = new System.Drawing.Point(704, 25);
+            this.buttonFetchAllVentasList.Location = new System.Drawing.Point(750, 60);
             this.buttonFetchAllVentasList.Name = "buttonFetchAllVentasList";
             this.buttonFetchAllVentasList.Size = new System.Drawing.Size(75, 20);
             this.buttonFetchAllVentasList.TabIndex = 14;
@@ -177,14 +180,25 @@ namespace ProjectABM
             this.buttonFetchAllVentasList.UseVisualStyleBackColor = true;
             this.buttonFetchAllVentasList.Click += new System.EventHandler(this.buttonFetchAllVentasList_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(24, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(206, 25);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Create a New Venta";
+            // 
             // VentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 450);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonFetchAllVentasList);
             this.Controls.Add(this.ButtonSortByDay);
-            this.Controls.Add(this.datePickerFilter);
+            this.Controls.Add(this.datePickerFilterByDay);
             this.Controls.Add(this.buttonGeneratePDF);
             this.Controls.Add(this.dataGridViewArticulos);
             this.Controls.Add(this.buttonUpdateVenta);
@@ -199,6 +213,7 @@ namespace ProjectABM
             this.Name = "VentaForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VentaForm";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VentaForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).EndInit();
             this.ResumeLayout(false);
@@ -219,8 +234,9 @@ namespace ProjectABM
         private System.Windows.Forms.Button buttonUpdateVenta;
         private System.Windows.Forms.DataGridView dataGridViewArticulos;
         private System.Windows.Forms.Button buttonGeneratePDF;
-        private System.Windows.Forms.DateTimePicker datePickerFilter;
+        private System.Windows.Forms.DateTimePicker datePickerFilterByDay;
         private System.Windows.Forms.Button ButtonSortByDay;
         private System.Windows.Forms.Button buttonFetchAllVentasList;
+        private System.Windows.Forms.Label label2;
     }
 }
