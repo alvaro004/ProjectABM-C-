@@ -110,7 +110,14 @@ namespace ProjectABM
                     }
                     catch (OracleException ex)
                     {
-                        MessageBox.Show("Error: " + ex.Message);
+                        if (ex.Number == 2292) // ORA-02292 
+                        {
+                            MessageBox.Show("Cannot delete Venta. This Venta is associated with other records.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error deleting Venta: " + ex.Message);
+                        }
                     }
                 }
             }

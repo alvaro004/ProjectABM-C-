@@ -67,13 +67,19 @@ namespace ProjectABM
                     {
                         connection.Open();
                         _clienteRepository.DeleteCliente(connection, selectedClienteId);
-
-                        //refresh the DataGridView.
-                        RefreshClientesDataGridView(connection);
+                        MessageBox.Show("Client Deleted successfully!"); 
+                        RefreshClientesDataGridView(connection); //refresh the DataGridView.
                     }
                     catch (OracleException ex)
                     {
-                        MessageBox.Show("Error: " + ex.Message);
+                        if (ex.Number == 2292) // ORA-02292 
+                        {
+                            MessageBox.Show("Cannot delete client. This client is associated with other records.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error deleting client: " + ex.Message);
+                        }
                     }
                 }
             }
