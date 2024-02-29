@@ -45,16 +45,17 @@ namespace ProjectABM
             // dataGridViewClientes
             // 
             this.dataGridViewClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewClientes.Location = new System.Drawing.Point(380, 38);
+            this.dataGridViewClientes.Location = new System.Drawing.Point(379, 66);
             this.dataGridViewClientes.Name = "dataGridViewClientes";
-            this.dataGridViewClientes.Size = new System.Drawing.Size(340, 220);
+            this.dataGridViewClientes.Size = new System.Drawing.Size(379, 296);
             this.dataGridViewClientes.TabIndex = 2;
             // 
             // buttonDeleteClient
             // 
-            this.buttonDeleteClient.Location = new System.Drawing.Point(380, 280);
+            this.buttonDeleteClient.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDeleteClient.Location = new System.Drawing.Point(379, 386);
             this.buttonDeleteClient.Name = "buttonDeleteClient";
-            this.buttonDeleteClient.Size = new System.Drawing.Size(75, 38);
+            this.buttonDeleteClient.Size = new System.Drawing.Size(96, 38);
             this.buttonDeleteClient.TabIndex = 3;
             this.buttonDeleteClient.Text = "Delete Client";
             this.buttonDeleteClient.UseVisualStyleBackColor = true;
@@ -62,9 +63,10 @@ namespace ProjectABM
             // 
             // dataGridViewClientesCellValueChanged
             // 
-            this.dataGridViewClientesCellValueChanged.Location = new System.Drawing.Point(482, 279);
+            this.dataGridViewClientesCellValueChanged.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewClientesCellValueChanged.Location = new System.Drawing.Point(502, 385);
             this.dataGridViewClientesCellValueChanged.Name = "dataGridViewClientesCellValueChanged";
-            this.dataGridViewClientesCellValueChanged.Size = new System.Drawing.Size(75, 39);
+            this.dataGridViewClientesCellValueChanged.Size = new System.Drawing.Size(94, 39);
             this.dataGridViewClientesCellValueChanged.TabIndex = 4;
             this.dataGridViewClientesCellValueChanged.Text = "Update";
             this.dataGridViewClientesCellValueChanged.UseVisualStyleBackColor = true;
@@ -73,32 +75,34 @@ namespace ProjectABM
             // name
             // 
             this.name.AutoSize = true;
-            this.name.Location = new System.Drawing.Point(36, 38);
+            this.name.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.name.Location = new System.Drawing.Point(34, 19);
             this.name.Name = "name";
-            this.name.Size = new System.Drawing.Size(71, 13);
+            this.name.Size = new System.Drawing.Size(141, 25);
             this.name.TabIndex = 5;
             this.name.Text = "Manage User";
             this.name.Click += new System.EventHandler(this.name_Click);
             // 
             // clientNameTextBox
             // 
-            this.clientNameTextBox.Location = new System.Drawing.Point(126, 77);
+            this.clientNameTextBox.Location = new System.Drawing.Point(198, 66);
             this.clientNameTextBox.Name = "clientNameTextBox";
-            this.clientNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.clientNameTextBox.Size = new System.Drawing.Size(138, 20);
             this.clientNameTextBox.TabIndex = 6;
             // 
             // clientLastNameTextBox
             // 
-            this.clientLastNameTextBox.Location = new System.Drawing.Point(126, 122);
+            this.clientLastNameTextBox.Location = new System.Drawing.Point(198, 113);
             this.clientLastNameTextBox.Name = "clientLastNameTextBox";
-            this.clientLastNameTextBox.Size = new System.Drawing.Size(100, 20);
+            this.clientLastNameTextBox.Size = new System.Drawing.Size(138, 20);
             this.clientLastNameTextBox.TabIndex = 10;
             // 
             // createNewClientButton_Click
             // 
-            this.createNewClientButton_Click.Location = new System.Drawing.Point(38, 169);
+            this.createNewClientButton_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createNewClientButton_Click.Location = new System.Drawing.Point(38, 163);
             this.createNewClientButton_Click.Name = "createNewClientButton_Click";
-            this.createNewClientButton_Click.Size = new System.Drawing.Size(75, 35);
+            this.createNewClientButton_Click.Size = new System.Drawing.Size(94, 35);
             this.createNewClientButton_Click.TabIndex = 12;
             this.createNewClientButton_Click.Text = "Create User";
             this.createNewClientButton_Click.UseVisualStyleBackColor = true;
@@ -107,27 +111,30 @@ namespace ProjectABM
             // labelClientName
             // 
             this.labelClientName.AutoSize = true;
-            this.labelClientName.Location = new System.Drawing.Point(36, 80);
+            this.labelClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClientName.Location = new System.Drawing.Point(36, 70);
             this.labelClientName.Name = "labelClientName";
-            this.labelClientName.Size = new System.Drawing.Size(64, 13);
+            this.labelClientName.Size = new System.Drawing.Size(100, 17);
             this.labelClientName.TabIndex = 13;
-            this.labelClientName.Text = "Client Name";
+            this.labelClientName.Text = "Client Name:";
             this.labelClientName.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelClientLastName
             // 
             this.labelClientLastName.AutoSize = true;
-            this.labelClientLastName.Location = new System.Drawing.Point(36, 125);
+            this.labelClientLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelClientLastName.Location = new System.Drawing.Point(36, 116);
             this.labelClientLastName.Name = "labelClientLastName";
-            this.labelClientLastName.Size = new System.Drawing.Size(84, 13);
+            this.labelClientLastName.Size = new System.Drawing.Size(131, 17);
             this.labelClientLastName.TabIndex = 14;
-            this.labelClientLastName.Text = "Client Las Name";
+            this.labelClientLastName.Text = "Client Las Name:";
             // 
             // returnToWelcomeButton
             // 
+            this.returnToWelcomeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.returnToWelcomeButton.Location = new System.Drawing.Point(38, 386);
             this.returnToWelcomeButton.Name = "returnToWelcomeButton";
-            this.returnToWelcomeButton.Size = new System.Drawing.Size(104, 38);
+            this.returnToWelcomeButton.Size = new System.Drawing.Size(92, 38);
             this.returnToWelcomeButton.TabIndex = 15;
             this.returnToWelcomeButton.Text = "Go Back";
             this.returnToWelcomeButton.UseVisualStyleBackColor = true;
@@ -137,7 +144,7 @@ namespace ProjectABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(807, 450);
             this.Controls.Add(this.returnToWelcomeButton);
             this.Controls.Add(this.labelClientLastName);
             this.Controls.Add(this.labelClientName);

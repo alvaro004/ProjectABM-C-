@@ -155,7 +155,7 @@ namespace ProjectABM
             // 
             // datePickerFilterByDay
             // 
-            this.datePickerFilterByDay.Location = new System.Drawing.Point(411, 59);
+            this.datePickerFilterByDay.Location = new System.Drawing.Point(411, 56);
             this.datePickerFilterByDay.Name = "datePickerFilterByDay";
             this.datePickerFilterByDay.Size = new System.Drawing.Size(225, 20);
             this.datePickerFilterByDay.TabIndex = 12;

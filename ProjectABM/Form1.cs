@@ -27,6 +27,8 @@ namespace ProjectABM
             InitializeComponent();
             _clienteRepository = new ClienteRepository();
 
+            dataGridViewClientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //AutoSizeColumns
+
             //call event handler to prevent edit ID in the Data Grid
             MethodUtils.PreventIdEditing(dataGridViewClientes, "cliente_id");
 
