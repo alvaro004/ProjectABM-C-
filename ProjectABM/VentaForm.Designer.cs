@@ -87,7 +87,7 @@ namespace ProjectABM
             // 
             this.buttonCreateVenta.Location = new System.Drawing.Point(29, 328);
             this.buttonCreateVenta.Name = "buttonCreateVenta";
-            this.buttonCreateVenta.Size = new System.Drawing.Size(135, 23);
+            this.buttonCreateVenta.Size = new System.Drawing.Size(135, 29);
             this.buttonCreateVenta.TabIndex = 4;
             this.buttonCreateVenta.Text = "Create Venta";
             this.buttonCreateVenta.UseVisualStyleBackColor = true;
@@ -96,7 +96,7 @@ namespace ProjectABM
             // dataGridViewVenta
             // 
             this.dataGridViewVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewVenta.Location = new System.Drawing.Point(411, 91);
+            this.dataGridViewVenta.Location = new System.Drawing.Point(411, 93);
             this.dataGridViewVenta.Name = "dataGridViewVenta";
             this.dataGridViewVenta.Size = new System.Drawing.Size(414, 218);
             this.dataGridViewVenta.TabIndex = 5;
@@ -115,7 +115,7 @@ namespace ProjectABM
             // 
             this.DeleteButtonVenta.Location = new System.Drawing.Point(411, 328);
             this.DeleteButtonVenta.Name = "DeleteButtonVenta";
-            this.DeleteButtonVenta.Size = new System.Drawing.Size(115, 23);
+            this.DeleteButtonVenta.Size = new System.Drawing.Size(115, 29);
             this.DeleteButtonVenta.TabIndex = 7;
             this.DeleteButtonVenta.Text = "Delete Venta";
             this.DeleteButtonVenta.UseVisualStyleBackColor = true;
@@ -123,9 +123,9 @@ namespace ProjectABM
             // 
             // buttonUpdateVenta
             // 
-            this.buttonUpdateVenta.Location = new System.Drawing.Point(558, 328);
+            this.buttonUpdateVenta.Location = new System.Drawing.Point(561, 328);
             this.buttonUpdateVenta.Name = "buttonUpdateVenta";
-            this.buttonUpdateVenta.Size = new System.Drawing.Size(115, 23);
+            this.buttonUpdateVenta.Size = new System.Drawing.Size(115, 29);
             this.buttonUpdateVenta.TabIndex = 8;
             this.buttonUpdateVenta.Text = "Update Venta";
             this.buttonUpdateVenta.UseVisualStyleBackColor = true;
@@ -147,7 +147,7 @@ namespace ProjectABM
             // 
             this.buttonGeneratePDF.Location = new System.Drawing.Point(710, 328);
             this.buttonGeneratePDF.Name = "buttonGeneratePDF";
-            this.buttonGeneratePDF.Size = new System.Drawing.Size(115, 23);
+            this.buttonGeneratePDF.Size = new System.Drawing.Size(115, 29);
             this.buttonGeneratePDF.TabIndex = 11;
             this.buttonGeneratePDF.Text = "Create Report";
             this.buttonGeneratePDF.UseVisualStyleBackColor = true;
@@ -155,16 +155,16 @@ namespace ProjectABM
             // 
             // datePickerFilterByDay
             // 
-            this.datePickerFilterByDay.Location = new System.Drawing.Point(411, 60);
+            this.datePickerFilterByDay.Location = new System.Drawing.Point(411, 59);
             this.datePickerFilterByDay.Name = "datePickerFilterByDay";
             this.datePickerFilterByDay.Size = new System.Drawing.Size(225, 20);
             this.datePickerFilterByDay.TabIndex = 12;
             // 
             // ButtonSortByDay
             // 
-            this.ButtonSortByDay.Location = new System.Drawing.Point(657, 60);
+            this.ButtonSortByDay.Location = new System.Drawing.Point(657, 53);
             this.ButtonSortByDay.Name = "ButtonSortByDay";
-            this.ButtonSortByDay.Size = new System.Drawing.Size(75, 20);
+            this.ButtonSortByDay.Size = new System.Drawing.Size(75, 26);
             this.ButtonSortByDay.TabIndex = 13;
             this.ButtonSortByDay.Text = "Sort";
             this.ButtonSortByDay.UseVisualStyleBackColor = true;
@@ -172,9 +172,9 @@ namespace ProjectABM
             // 
             // buttonFetchAllVentasList
             // 
-            this.buttonFetchAllVentasList.Location = new System.Drawing.Point(750, 60);
+            this.buttonFetchAllVentasList.Location = new System.Drawing.Point(750, 53);
             this.buttonFetchAllVentasList.Name = "buttonFetchAllVentasList";
-            this.buttonFetchAllVentasList.Size = new System.Drawing.Size(75, 20);
+            this.buttonFetchAllVentasList.Size = new System.Drawing.Size(75, 26);
             this.buttonFetchAllVentasList.TabIndex = 14;
             this.buttonFetchAllVentasList.Text = "All Ventas";
             this.buttonFetchAllVentasList.UseVisualStyleBackColor = true;

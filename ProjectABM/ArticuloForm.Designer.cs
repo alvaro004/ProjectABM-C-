@@ -44,26 +44,28 @@ namespace ProjectABM
             // labelArticuleTitle
             // 
             this.labelArticuleTitle.AutoSize = true;
-            this.labelArticuleTitle.Location = new System.Drawing.Point(25, 25);
+            this.labelArticuleTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelArticuleTitle.Location = new System.Drawing.Point(28, 20);
             this.labelArticuleTitle.Name = "labelArticuleTitle";
-            this.labelArticuleTitle.Size = new System.Drawing.Size(84, 13);
+            this.labelArticuleTitle.Size = new System.Drawing.Size(222, 25);
             this.labelArticuleTitle.TabIndex = 0;
-            this.labelArticuleTitle.Text = "Manage Articulo";
+            this.labelArticuleTitle.Text = "Create a New Articulo";
             // 
             // labelDataText
             // 
             this.labelDataText.AutoSize = true;
-            this.labelDataText.Location = new System.Drawing.Point(25, 58);
+            this.labelDataText.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDataText.Location = new System.Drawing.Point(29, 69);
             this.labelDataText.Name = "labelDataText";
-            this.labelDataText.Size = new System.Drawing.Size(68, 13);
+            this.labelDataText.Size = new System.Drawing.Size(107, 17);
             this.labelDataText.TabIndex = 1;
-            this.labelDataText.Text = "Articulo Date";
+            this.labelDataText.Text = "Articulo Date:";
             // 
             // dateTimePickerArticulo
             // 
-            this.dateTimePickerArticulo.Location = new System.Drawing.Point(113, 56);
+            this.dateTimePickerArticulo.Location = new System.Drawing.Point(156, 68);
             this.dateTimePickerArticulo.Name = "dateTimePickerArticulo";
-            this.dateTimePickerArticulo.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePickerArticulo.Size = new System.Drawing.Size(215, 20);
             this.dateTimePickerArticulo.TabIndex = 2;
             // 
             // oracleCommandBuilder1
@@ -73,9 +75,9 @@ namespace ProjectABM
             // 
             // CreateNewArticule
             // 
-            this.CreateNewArticule.Location = new System.Drawing.Point(28, 94);
+            this.CreateNewArticule.Location = new System.Drawing.Point(28, 101);
             this.CreateNewArticule.Name = "CreateNewArticule";
-            this.CreateNewArticule.Size = new System.Drawing.Size(285, 33);
+            this.CreateNewArticule.Size = new System.Drawing.Size(110, 31);
             this.CreateNewArticule.TabIndex = 3;
             this.CreateNewArticule.Text = "Create Articulo";
             this.CreateNewArticule.UseVisualStyleBackColor = true;
@@ -86,14 +88,14 @@ namespace ProjectABM
             this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewArticulos.Location = new System.Drawing.Point(28, 156);
             this.dataGridViewArticulos.Name = "dataGridViewArticulos";
-            this.dataGridViewArticulos.Size = new System.Drawing.Size(285, 228);
+            this.dataGridViewArticulos.Size = new System.Drawing.Size(413, 244);
             this.dataGridViewArticulos.TabIndex = 4;
             // 
             // returnToWelcomeButton
             // 
-            this.returnToWelcomeButton.Location = new System.Drawing.Point(28, 468);
+            this.returnToWelcomeButton.Location = new System.Drawing.Point(28, 492);
             this.returnToWelcomeButton.Name = "returnToWelcomeButton";
-            this.returnToWelcomeButton.Size = new System.Drawing.Size(110, 31);
+            this.returnToWelcomeButton.Size = new System.Drawing.Size(81, 38);
             this.returnToWelcomeButton.TabIndex = 16;
             this.returnToWelcomeButton.Text = "Go Back";
             this.returnToWelcomeButton.UseVisualStyleBackColor = true;
@@ -101,7 +103,7 @@ namespace ProjectABM
             // 
             // buttonDeleteArticulo
             // 
-            this.buttonDeleteArticulo.Location = new System.Drawing.Point(28, 399);
+            this.buttonDeleteArticulo.Location = new System.Drawing.Point(26, 418);
             this.buttonDeleteArticulo.Name = "buttonDeleteArticulo";
             this.buttonDeleteArticulo.Size = new System.Drawing.Size(110, 31);
             this.buttonDeleteArticulo.TabIndex = 17;
@@ -111,11 +113,11 @@ namespace ProjectABM
             // 
             // buttonUpdateArticulo
             // 
-            this.buttonUpdateArticulo.Location = new System.Drawing.Point(157, 399);
+            this.buttonUpdateArticulo.Location = new System.Drawing.Point(157, 418);
             this.buttonUpdateArticulo.Name = "buttonUpdateArticulo";
             this.buttonUpdateArticulo.Size = new System.Drawing.Size(110, 31);
             this.buttonUpdateArticulo.TabIndex = 18;
-            this.buttonUpdateArticulo.Text = "Update";
+            this.buttonUpdateArticulo.Text = "Update Articulo";
             this.buttonUpdateArticulo.UseVisualStyleBackColor = true;
             this.buttonUpdateArticulo.Click += new System.EventHandler(this.buttonUpdateArticulo_Click);
             // 
@@ -123,7 +125,7 @@ namespace ProjectABM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(375, 511);
+            this.ClientSize = new System.Drawing.Size(496, 544);
             this.Controls.Add(this.buttonUpdateArticulo);
             this.Controls.Add(this.buttonDeleteArticulo);
             this.Controls.Add(this.returnToWelcomeButton);

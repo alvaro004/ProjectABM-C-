@@ -25,6 +25,7 @@ namespace ProjectABM
             InitializeComponent();
             _articuloRepository = new ArticuloRepository();
 
+            dataGridViewArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill; //AutoSizeColumns
             //call event handler to prevent edit ID in the Data Grid 
             MethodUtils.PreventIdEditing(dataGridViewArticulos, "articulo_id");
 
@@ -43,7 +44,10 @@ namespace ProjectABM
                 }
             }
         }
-
+        //////////////////////////////////////////////////////////////////////////////////////
+        //CRUD OPERATIONS
+        //////////////////////////////////////////////////////////////////////////////////////
+        
         //CREATE A NEW ARTICULO 
         private void CreateNewArticule_Click(object sender, EventArgs e)
         {
@@ -66,42 +70,6 @@ namespace ProjectABM
                     MessageBox.Show("Error creating article: " + ex.Message);
                 }
             }
-        }
-
-        // METHOD TO SHOW AND HIDE WELCOME FORM 
-        private void ShowWelcomeForm()
-        {
-            var welcomeForm = Application.OpenForms.OfType<WelcomeForm>().FirstOrDefault();
-            if (welcomeForm != null)
-            {
-                welcomeForm.Show();
-            }
-            else
-            {
-                welcomeForm = new WelcomeForm();
-                welcomeForm.Show();
-            }
-        }
-
-        ////GO BACK TO WELCOME FORM WHEN THE WINDOW IS CLOSED 
-        private void ArticuloForm_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            this.Hide();
-            ShowWelcomeForm();
-        }
-
-        //GO BACK TO WELCOME FORM 
-        private void returnToWelcomeButton_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            ShowWelcomeForm();
-        }
-
-        // Method to refresh the DataGridView. 
-        private void RefreshClientesDataGridView(OracleConnection connection)
-        {
-            var articulos = _articuloRepository.ListArticulos(connection);
-            dataGridViewArticulos.DataSource = articulos.ToList();
         }
 
         //DELETE AN ARTICULO 
@@ -138,7 +106,7 @@ namespace ProjectABM
         //UPDATE ARTICULO
         private void buttonUpdateArticulo_Click(object sender, EventArgs e)
         {
-            if(dataGridViewArticulos.SelectedRows.Count > 0)
+            if (dataGridViewArticulos.SelectedRows.Count > 0)
             {
                 Articulo articuloToUpdate = GetArticuloFromForm();
 
@@ -149,7 +117,7 @@ namespace ProjectABM
                         connection.Open();
                         _articuloRepository.UpdateArticulo(connection, articuloToUpdate);
                         MessageBox.Show("Article updated!");
-                        
+
                         CallMethodutilRefreshDataGrid(connection); // Refresh the DataGridView
                     }
                     catch (OracleException ex)
@@ -164,6 +132,46 @@ namespace ProjectABM
             }
         }
 
+        //////////////////////////////////////////////////////////////////////////////////////
+        //COMPLEMENT METHODS
+        //////////////////////////////////////////////////////////////////////////////////////
+
+        //Method to show and hide welcome form 
+        private void ShowWelcomeForm()
+        {
+            var welcomeForm = Application.OpenForms.OfType<WelcomeForm>().FirstOrDefault();
+            if (welcomeForm != null)
+            {
+                welcomeForm.Show();
+            }
+            else
+            {
+                welcomeForm = new WelcomeForm();
+                welcomeForm.Show();
+            }
+        }
+
+        ////Go back to welcome form when the window is closed 
+        private void ArticuloForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+            ShowWelcomeForm();
+        }
+
+        //Go back to welcome form 
+        private void returnToWelcomeButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ShowWelcomeForm();
+        }
+
+        // Method to refresh the DataGridView. 
+        private void RefreshClientesDataGridView(OracleConnection connection)
+        {
+            var articulos = _articuloRepository.ListArticulos(connection);
+            dataGridViewArticulos.DataSource = articulos.ToList();
+        }
+
          //Helper Method to Extract Data 
         private Articulo GetArticuloFromForm()
         {
@@ -176,13 +184,13 @@ namespace ProjectABM
             return articulo;
         }
 
-        //METHOD TO CALL THE METHOD UTILS TO REFRESH THE DATA GRID 
+        //Method to call the method utils to refresh the data grid 
         private void CallMethodutilRefreshDataGrid(OracleConnection connection)
         {
             var articulos = _articuloRepository.ListArticulos(connection);
             MethodUtils.RefreshDataGridView<Articulo>(dataGridViewArticulos, articulos, connection);
         }
-
+        //////////////////////////////////////////////////////////////////////////////////////
     }
 
 }
