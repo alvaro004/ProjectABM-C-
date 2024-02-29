@@ -39,7 +39,7 @@ namespace ProjectABM
             this.DeleteButtonVenta = new System.Windows.Forms.Button();
             this.buttonUpdateVenta = new System.Windows.Forms.Button();
             this.dataGridViewArticulos = new System.Windows.Forms.DataGridView();
-            this.selectColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonGeneratePDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVenta)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewArticulos)).BeginInit();
             this.SuspendLayout();
@@ -109,7 +109,7 @@ namespace ProjectABM
             // 
             this.DeleteButtonVenta.Location = new System.Drawing.Point(405, 218);
             this.DeleteButtonVenta.Name = "DeleteButtonVenta";
-            this.DeleteButtonVenta.Size = new System.Drawing.Size(135, 23);
+            this.DeleteButtonVenta.Size = new System.Drawing.Size(115, 23);
             this.DeleteButtonVenta.TabIndex = 7;
             this.DeleteButtonVenta.Text = "Delete Venta";
             this.DeleteButtonVenta.UseVisualStyleBackColor = true;
@@ -117,9 +117,9 @@ namespace ProjectABM
             // 
             // buttonUpdateVenta
             // 
-            this.buttonUpdateVenta.Location = new System.Drawing.Point(561, 218);
+            this.buttonUpdateVenta.Location = new System.Drawing.Point(552, 218);
             this.buttonUpdateVenta.Name = "buttonUpdateVenta";
-            this.buttonUpdateVenta.Size = new System.Drawing.Size(135, 23);
+            this.buttonUpdateVenta.Size = new System.Drawing.Size(115, 23);
             this.buttonUpdateVenta.TabIndex = 8;
             this.buttonUpdateVenta.Text = "Update Venta";
             this.buttonUpdateVenta.UseVisualStyleBackColor = true;
@@ -130,8 +130,6 @@ namespace ProjectABM
             this.dataGridViewArticulos.AllowUserToAddRows = false;
             this.dataGridViewArticulos.AllowUserToDeleteRows = false;
             this.dataGridViewArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.selectColumn});
             this.dataGridViewArticulos.Location = new System.Drawing.Point(27, 119);
             this.dataGridViewArticulos.Name = "dataGridViewArticulos";
             this.dataGridViewArticulos.ReadOnly = true;
@@ -139,17 +137,22 @@ namespace ProjectABM
             this.dataGridViewArticulos.Size = new System.Drawing.Size(349, 150);
             this.dataGridViewArticulos.TabIndex = 10;
             // 
-            // selectColumn
+            // buttonGeneratePDF
             // 
-            this.selectColumn.HeaderText = "Select";
-            this.selectColumn.Name = "selectColumn";
-            this.selectColumn.ReadOnly = true;
+            this.buttonGeneratePDF.Location = new System.Drawing.Point(704, 218);
+            this.buttonGeneratePDF.Name = "buttonGeneratePDF";
+            this.buttonGeneratePDF.Size = new System.Drawing.Size(115, 23);
+            this.buttonGeneratePDF.TabIndex = 11;
+            this.buttonGeneratePDF.Text = "Create Report";
+            this.buttonGeneratePDF.UseVisualStyleBackColor = true;
+            this.buttonGeneratePDF.Click += new System.EventHandler(this.buttonGeneratePDF_Click);
             // 
             // VentaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(859, 450);
+            this.Controls.Add(this.buttonGeneratePDF);
             this.Controls.Add(this.dataGridViewArticulos);
             this.Controls.Add(this.buttonUpdateVenta);
             this.Controls.Add(this.DeleteButtonVenta);
@@ -181,6 +184,6 @@ namespace ProjectABM
         private System.Windows.Forms.Button DeleteButtonVenta;
         private System.Windows.Forms.Button buttonUpdateVenta;
         private System.Windows.Forms.DataGridView dataGridViewArticulos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn selectColumn;
+        private System.Windows.Forms.Button buttonGeneratePDF;
     }
 }

@@ -11,6 +11,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO; // For FileStream 
 
 namespace ProjectABM
 {
@@ -25,6 +28,9 @@ namespace ProjectABM
         public VentaForm()
         {
             InitializeComponent();
+
+            dataGridViewVenta.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewArticulos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             this.Load += new EventHandler(VentaForm_Load); //show the Venta List when the view is loaded
 
@@ -98,9 +104,8 @@ namespace ProjectABM
                     {
                         connection.Open();
                         _ventaRepository.DeleteVenta(connection, selectedVentaId);
-                        MessageBox.Show("Client Deleted successfully!");
-                        // Refresh the DataGridView
-                        RefreshVentaDataGridView(connection);
+                        MessageBox.Show("Client Deleted successfully!"); 
+                        RefreshVentaDataGridView(connection); // Refresh the DataGridView
                     }
                     catch (OracleException ex)
                     {
@@ -230,6 +235,96 @@ namespace ProjectABM
                 dataGridViewVenta.CurrentCell.ReadOnly = false;
             }
         }
+
+        //Generate PDF
+        private void buttonGeneratePDF_Click(object sender, EventArgs e)
+        {
+            GenerateVentaPDF();
+        }
+
+        //Logic for Generate PDF
+        private void GenerateVentaPDF()
+        {
+            string pdfFilePath = @"C:\Temp\ventas.pdf"; // Customize output path
+
+            // Basic PDF Setup
+            Document document = new Document();
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(pdfFilePath, FileMode.Create));
+            document.Open();
+
+            // Header (Illustrative)
+            Paragraph title = new Paragraph("Venta Report");
+            title.Alignment = Element.ALIGN_CENTER;
+            document.Add(title);
+            document.Add(new Paragraph(" ")); // Add a space
+
+            // Extract Data
+            var gridData = ExtractDataFromDataGridView(dataGridViewVenta);
+
+            // Create Table
+            PdfPTable table = CreatePdfTable(gridData);
+            document.Add(table);
+
+            // Close
+            document.Close();
+
+            MessageBox.Show("PDF Generated Successfully!");
+            // Optionally open the PDF:
+            System.Diagnostics.Process.Start(pdfFilePath);
+        }
+
+        // Helper Functions
+        private List<List<string>> ExtractDataFromDataGridView(DataGridView dataGridView)
+        {
+            var data = new List<List<string>>();
+
+            // Add column headers
+            var headers = new List<string>();
+            foreach (DataGridViewColumn col in dataGridView.Columns)
+            {
+                headers.Add(col.HeaderText);
+            }
+            data.Add(headers);
+
+            // Add rows
+            foreach (DataGridViewRow row in dataGridView.Rows)
+            {
+                var rowData = new List<string>();
+                foreach (DataGridViewCell cell in row.Cells)
+                {
+                    rowData.Add(cell.Value?.ToString() ?? ""); // Handle null cell values
+                }
+                data.Add(rowData);
+            }
+
+            return data;
+        }
+
+        private PdfPTable CreatePdfTable(List<List<string>> data)
+        {
+            // Column Count (based on your data)
+            PdfPTable table = new PdfPTable(dataGridViewVenta.Columns.Count);
+
+            // Headers
+            foreach (DataGridViewColumn col in dataGridViewVenta.Columns)
+            {
+                PdfPCell headerCell = new PdfPCell(new Phrase(col.HeaderText));
+                headerCell.BackgroundColor = BaseColor.LIGHT_GRAY;
+                table.AddCell(headerCell);
+            }
+
+            // Rows
+            foreach (var row in data.Skip(1)) // Skip the header row
+            {
+                foreach (var cellValue in row)
+                {
+                    table.AddCell(cellValue);
+                }
+            }
+
+            return table;
+        }
+
         //////////////////////////////////////////////////////////////////////////////////////
     }
 

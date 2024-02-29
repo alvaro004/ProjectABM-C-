@@ -27,3 +27,6 @@ C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\obj\Debug\Proje
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\obj\Debug\ProjectABM.DAL.dll
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\obj\Debug\ProjectABM.DAL.pdb
 C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\obj\Debug\ProjectABM.DAL.csproj.AssemblyReference.cache
+C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\bin\Debug\itextsharp.dll
+C:\Users\alvaro.Rodriguez\source\repos\ProjectABM\ProjectABM.DAL\bin\Debug\itextsharp.xml
