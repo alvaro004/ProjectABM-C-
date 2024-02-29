@@ -48,15 +48,17 @@ namespace ProjectABM
             }
         }
 
+        //////////////////////////////////////////////////////////////////////////////////////
+        //CRUD OPERATIONS
+        //////////////////////////////////////////////////////////////////////////////////////
 
         //DELETE CLIENT
-
         private void buttonDeleteClient_Click(object sender, EventArgs e)
         {
             // Get the selected row.
             if (dataGridViewClientes.SelectedRows.Count > 0)
             {
-                // Assuming your DataGridView is bound to a List<Cliente>, and ClienteId is the primary key.
+                //DataGridView is bound to a List<Cliente>, and ClienteId is the primary key.
                 int selectedClienteId = Convert.ToInt32(dataGridViewClientes.SelectedRows[0].Cells["Cliente_id"].Value);
 
                 using (OracleConnection connection = new OracleConnection(connectionString))
@@ -66,7 +68,7 @@ namespace ProjectABM
                         connection.Open();
                         _clienteRepository.DeleteCliente(connection, selectedClienteId);
 
-                        // Optionally, refresh the DataGridView.
+                        //refresh the DataGridView.
                         RefreshClientesDataGridView(connection);
                     }
                     catch (OracleException ex)
@@ -82,7 +84,6 @@ namespace ProjectABM
         }
 
         //UPDATE CLIENT
-
         private void dataGridViewClientesCellValueChanged_Click(object sender, EventArgs e)
         {
             if (dataGridViewClientes.SelectedRows.Count > 0)
@@ -118,7 +119,6 @@ namespace ProjectABM
         }
 
         //CREATE A NEW CLIENT
-
         private void createNewClientButton_Click_Click(object sender, EventArgs e)
         {
             // Input Validation
@@ -156,6 +156,10 @@ namespace ProjectABM
             }
         }
 
+        //////////////////////////////////////////////////////////////////////////////////////
+        //COMPLEMENT METHODS
+        //////////////////////////////////////////////////////////////////////////////////////
+        
         // Method to refresh the DataGridView after delete.
         private void RefreshClientesDataGridView(OracleConnection connection)
         {
@@ -163,27 +167,21 @@ namespace ProjectABM
             dataGridViewClientes.DataSource = clientes.ToList();
         }
 
-        private void label1_Click(object sender, EventArgs e){}
-        private void name_Click(object sender, EventArgs e) {}
-
-        //EVENT HANDLER TO HANDLE WHENEVER THE FORM1 IS OPEN OR NOT
-
+        //Event Handler To Handle Whenever The Form1 Is Open Or Not
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Hide(); // Hide Form1 may not be desired in this scenario
             ShowWelcomeForm();
         }
 
-        //GO BACK TO WELCOME FORM
-
+        //Go Back To Welcome Form
         private void returnToWelcomeButton_Click(object sender, EventArgs e)
         {
             this.Hide();
             ShowWelcomeForm();
         }
 
-        // METHOD TO SHOW AND HIDE WELCOME FORM
-
+        //Method To Show And Hide Welcome Form
         private void ShowWelcomeForm()
         {
             var welcomeForm = Application.OpenForms.OfType<WelcomeForm>().FirstOrDefault();
@@ -197,6 +195,9 @@ namespace ProjectABM
                 welcomeForm.Show();
             }
         }
+        //////////////////////////////////////////////////////////////////////////////////////
+        private void label1_Click(object sender, EventArgs e) { }
+        private void name_Click(object sender, EventArgs e) { }
 
     }
 }

@@ -38,15 +38,17 @@ namespace ProjectABM
             // labelWelcome
             // 
             this.labelWelcome.AutoSize = true;
-            this.labelWelcome.Location = new System.Drawing.Point(298, 43);
+            this.labelWelcome.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelWelcome.Location = new System.Drawing.Point(117, 62);
             this.labelWelcome.Name = "labelWelcome";
-            this.labelWelcome.Size = new System.Drawing.Size(225, 13);
+            this.labelWelcome.Size = new System.Drawing.Size(592, 31);
             this.labelWelcome.TabIndex = 0;
             this.labelWelcome.Text = "WELCOME TO THE MANAGMENT SYSTEM";
             // 
             // manageClientsButton_Click
             // 
-            this.manageClientsButton_Click.Location = new System.Drawing.Point(339, 89);
+            this.manageClientsButton_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageClientsButton_Click.Location = new System.Drawing.Point(336, 140);
             this.manageClientsButton_Click.Name = "manageClientsButton_Click";
             this.manageClientsButton_Click.Size = new System.Drawing.Size(126, 41);
             this.manageClientsButton_Click.TabIndex = 1;
@@ -56,7 +58,8 @@ namespace ProjectABM
             // 
             // manageArticulosButton_Click_Click
             // 
-            this.manageArticulosButton_Click_Click.Location = new System.Drawing.Point(339, 156);
+            this.manageArticulosButton_Click_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageArticulosButton_Click_Click.Location = new System.Drawing.Point(336, 207);
             this.manageArticulosButton_Click_Click.Name = "manageArticulosButton_Click_Click";
             this.manageArticulosButton_Click_Click.Size = new System.Drawing.Size(126, 41);
             this.manageArticulosButton_Click_Click.TabIndex = 2;
@@ -66,7 +69,8 @@ namespace ProjectABM
             // 
             // manageVentasButton_Click
             // 
-            this.manageVentasButton_Click.Location = new System.Drawing.Point(339, 221);
+            this.manageVentasButton_Click.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.manageVentasButton_Click.Location = new System.Drawing.Point(336, 272);
             this.manageVentasButton_Click.Name = "manageVentasButton_Click";
             this.manageVentasButton_Click.Size = new System.Drawing.Size(126, 41);
             this.manageVentasButton_Click.TabIndex = 3;
